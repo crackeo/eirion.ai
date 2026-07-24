@@ -118,8 +118,9 @@ export function Hero() {
           </div>
         </div>
 
-        {/* ── Visual column: ELLIE illustration + overlay cards ── */}
-        <div className="relative mx-auto w-full max-w-[460px] sm:max-w-[600px] lg:max-w-none">
+        {/* ── Visual column: ELLIE illustration + overlay cards ──
+            Scaled up on wide screens so the character reads at full size */}
+        <div className="relative mx-auto w-full max-w-[460px] sm:max-w-[600px] lg:max-w-none lg:scale-[1.14] xl:scale-[1.28] xl:translate-x-3">
           {/* Ambient 3D constellation behind the character */}
           <div className="absolute inset-[-14%]">
             {sceneReady ? (
