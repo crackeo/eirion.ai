@@ -108,7 +108,7 @@ export function AgentEcosystem() {
         />
 
         {/* 3D solar system (desktop / tablet) */}
-        <div ref={ref} className="relative mx-auto hidden aspect-[16/10] w-full max-w-[1060px] md:block">
+        <div ref={ref} className="relative mx-auto hidden aspect-[4/3] w-full max-w-[1150px] md:block">
           {near && <EcosystemScene />}
           <p className="font-labels pointer-events-none absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-2 text-[12px] tracking-[0.18em] text-white/40 uppercase">
             <MousePointer2 className="size-3.5" aria-hidden="true" />
