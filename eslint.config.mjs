@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Skill helper scripts installed by ui-ux-pro-max, not app code:
+    ".claude/**",
   ]),
 ]);
 
