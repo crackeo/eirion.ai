@@ -147,12 +147,12 @@ export function Hero() {
               className="animate-pulse-soft absolute bottom-[2%] left-1/2 h-[16%] w-[46%] -translate-x-1/2 rounded-[50%] bg-forest-400/25 blur-[42px]"
             />
             <Image
-              src="/ellie-hero-green.png"
+              src="/ellie-hero-big.png"
               alt="ELLIE, the interactive AI health coach, holding a yoga mat and water bottle, surrounded by live patient monitoring cards"
-              width={1536}
+              width={970}
               height={1024}
               priority
-              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 600px, 46vw"
+              sizes="(max-width: 640px) 88vw, (max-width: 1024px) 540px, 42vw"
               className="h-auto w-full [mask-image:linear-gradient(to_bottom,black_72%,transparent_97%)]"
             />
             <div className="absolute inset-0 [container-type:inline-size]">
