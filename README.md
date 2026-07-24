@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# eirion.ai — The AI Operating Layer for Healthcare
 
-## Getting Started
+Premium single-page site for the ELEANOR Platform, orchestrated by ELLIE.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, fully static output)
+- **Tailwind CSS v4** — design tokens in `app/globals.css` (`@theme`)
+- **Framer Motion** via LazyMotion (`m.` components)
+- **React Three Fiber** — hero constellation + MCP agent-ecosystem solar system
+- **Lenis** smooth scrolling
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build (static)
+npm start        # serve production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Performance
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Lighthouse (desktop): **100 / 100 / 100 / 100** — CLS 0, TBT 0 ms.
+Key techniques: CSS-first hero entrances for instant LCP, interaction-gated
+3D chunks (never on the critical path), viewport-paused WebGL rendering,
+responsive `next/image` variants, security headers + CSP.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Structure
 
-## Learn More
+- `app/` — layout, page, globals, sitemap, robots
+- `components/` — animations, cards, hero, ecosystem, navigation, footer, providers, ui
+- `sections/` — page sections (growth engines, baseline, closed loop, security, FAQ, CTA…)
+- `constants/content.ts` — all site copy (single source of truth)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deployed on Vercel.
