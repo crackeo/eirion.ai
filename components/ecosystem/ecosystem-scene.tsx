@@ -52,7 +52,7 @@ const ORBITS: OrbitDef[] = [
     ],
   },
   {
-    radius: 3.7,
+    radius: 3.45,
     speed: 0.08,
     tiltX: 0.24,
     tiltZ: 0.3,
@@ -304,7 +304,7 @@ export default function EcosystemScene() {
       <Canvas
         dpr={[1, 1.75]}
         frameloop={frameloop}
-        camera={{ position: [0, 2.6, 7.2], fov: 45 }}
+        camera={{ position: [0, 2.2, 6.1], fov: 45 }}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
         style={{ background: "transparent" }}
         onCreated={({ gl }) => {
