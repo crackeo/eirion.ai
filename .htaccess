@@ -1,0 +1,82 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  eirion.ai — static Next.js export on Hostinger (LiteSpeed)
+#
+#  This file replaces the header/caching rules that next.config.ts applies when
+#  the app runs on a Node server. Static exports cannot set headers, so they are
+#  configured here and applied by the web server.
+#
+#  Deployed to: public_html/.htaccess
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Security headers ─────────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+
+  # HSTS: one year, this host only. Deliberately WITHOUT `includeSubDomains`
+  # and `preload` — those would force every subdomain (mail, webmail, legacy
+  # hosts) onto HTTPS and are effectively irreversible once preloaded.
+  # Only add them after confirming every subdomain serves valid HTTPS.
+  Header always set Strict-Transport-Security "max-age=31536000"
+
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+
+  # Build assets are content-hashed by Next.js, so they can be cached forever.
+  <FilesMatch "\.(js|css|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # HTML must always revalidate so a new deployment is picked up immediately.
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ── Static asset caching ─────────────────────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp                "access plus 1 year"
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType image/svg+xml             "access plus 1 year"
+  ExpiresByType font/woff2                "access plus 1 year"
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType text/html                 "access plus 0 seconds"
+</IfModule>
+
+# ── Compression ──────────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ── Error document ───────────────────────────────────────────────────────────
+ErrorDocument 404 /404.html
+
+# ── Directory listing ────────────────────────────────────────────────────────
+Options -Indexes
+
+# ── Canonical host redirects (OPTIONAL — read before enabling) ───────────────
+# Left disabled on purpose. Enable ONE of the blocks below only after
+# confirming in the browser that BOTH https://eirion.ai and
+# https://www.eirion.ai load with a valid certificate. Redirecting to a
+# hostname whose certificate is invalid makes the site unreachable.
+#
+# Force apex (https://eirion.ai):
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{HTTP_HOST} ^www\.eirion\.ai$ [NC]
+#   RewriteRule ^(.*)$ https://eirion.ai/$1 [R=301,L]
+# </IfModule>
+#
+# Force www (https://www.eirion.ai):
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{HTTP_HOST} ^eirion\.ai$ [NC]
+#   RewriteRule ^(.*)$ https://www.eirion.ai/$1 [R=301,L]
+# </IfModule>
