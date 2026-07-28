@@ -117,7 +117,7 @@ export function Cta() {
             />
             <div className="relative">
               <Image
-                src="/ellie-cta-green.png"
+                src="/ellie-cta-green.webp"
                 alt="ELLIE opening a portal of connected healthcare systems: EHR, RPM monitoring, genetic testing, CCM and wearable sensors"
                 width={1536}
                 height={1024}

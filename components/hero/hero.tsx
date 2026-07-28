@@ -147,7 +147,7 @@ export function Hero() {
               className="animate-pulse-soft absolute bottom-[2%] left-1/2 h-[16%] w-[46%] -translate-x-1/2 rounded-[50%] bg-forest-400/25 blur-[42px]"
             />
             <Image
-              src="/ellie-hero-big.png"
+              src="/ellie-hero-big.webp"
               alt="ELLIE, the interactive AI health coach, holding a yoga mat and water bottle, surrounded by live patient monitoring cards"
               width={970}
               height={1024}

@@ -29,7 +29,9 @@ const ibmPlex = IBM_Plex_Sans({
   display: "swap",
 });
 
-const siteUrl = "https://eirion.ai";
+// Set NEXT_PUBLIC_SITE_URL on the host (e.g. https://eirion-ai.onrender.com)
+// so canonicals match the serving domain until eirion.ai goes live.
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://eirion.ai";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -53,12 +55,14 @@ export const metadata: Metadata = {
     title: "eirion.ai | The AI Operating Layer for Healthcare",
     description:
       "Science. Better with Eleanor. The MCP-centered AI Operating Layer connecting healthcare systems, teams, and genetic data.",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "eirion.ai — The AI Operating Layer for Healthcare" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "eirion.ai | The AI Operating Layer for Healthcare",
     description:
       "Science. Better with Eleanor. The MCP-centered AI Operating Layer for healthcare.",
+    images: ["/og.png"],
   },
   robots: { index: true, follow: true },
 };
