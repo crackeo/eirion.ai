@@ -12,10 +12,11 @@ import {
   CalendarClock,
   Dna,
   MousePointer2,
+  type LucideIcon,
 } from "lucide-react";
 import { ECOSYSTEM } from "@/constants/content";
-import { Section, SectionHeading } from "@/components/layout/section";
-import { Reveal, Stagger, StaggerItem } from "@/components/animations/reveal";
+import { Section } from "@/components/layout/section";
+import { Reveal } from "@/components/animations/reveal";
 
 const EcosystemScene = dynamic(
   () => import("@/components/ecosystem/ecosystem-scene"),
@@ -62,9 +63,9 @@ function usePrefetchScene() {
   }, []);
 }
 
-/** Mounts children's heavy content only once the wrapper nears the viewport,
- *  so the three.js chunk never loads for visitors who don't scroll here. */
-function useNearViewport(margin = "400px") {
+/** Mounts the heavy 3D chunk only once the wrapper nears the viewport, so
+ *  visitors who never scroll here never download three.js. */
+function useNearViewport(margin = "900px") {
   const ref = useRef<HTMLDivElement>(null);
   const [near, setNear] = useState(false);
 
@@ -87,65 +88,128 @@ function useNearViewport(margin = "400px") {
   return { ref, near };
 }
 
+/** Compact agent list that flanks the 3D model on wide screens. */
+function AgentColumn({
+  title,
+  agents,
+  accent,
+  align,
+}: {
+  title: string;
+  agents: readonly { label: string; Icon: LucideIcon }[];
+  accent: string;
+  align: "left" | "right";
+}) {
+  return (
+    <div className={align === "right" ? "lg:text-right" : ""}>
+      <h3
+        className={`font-labels text-[11.5px] font-semibold tracking-[0.2em] uppercase ${accent}`}
+      >
+        {title}
+      </h3>
+      <ul className="mt-3.5 grid grid-cols-2 gap-2 lg:grid-cols-1 lg:gap-1.5">
+        {agents.map(({ label, Icon }) => (
+          <li
+            key={label}
+            className={`flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-2 transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.08] ${
+              align === "right" ? "lg:flex-row-reverse lg:text-right" : ""
+            }`}
+          >
+            <Icon className={`size-3.5 shrink-0 ${accent}`} aria-hidden="true" />
+            <span className="text-[12.5px] leading-tight font-medium text-cream">
+              {label}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/** Zoom/rotate hint. Shows the right modifier key for the visitor's platform. */
+function InteractionHint() {
+  // Platform detection must happen after mount: deciding this during render
+  // would read navigator on the server and desync hydration.
+  const [mod, setMod] = useState("Ctrl");
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) setMod("⌘");
+  }, []);
+  return (
+    <p className="font-labels pointer-events-none absolute inset-x-0 bottom-1 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[11px] tracking-[0.14em] text-cream/70 uppercase">
+      <span className="inline-flex items-center gap-1.5">
+        <MousePointer2 className="size-3" aria-hidden="true" />
+        Drag to rotate
+      </span>
+      <span aria-hidden="true" className="text-cream/40">·</span>
+      <span>
+        Hold <kbd className="rounded border border-cream/30 px-1 font-sans">{mod}</kbd> + scroll to zoom
+      </span>
+    </p>
+  );
+}
+
 export function AgentEcosystem() {
   usePrefetchScene();
-  const { ref, near } = useNearViewport("900px");
+  const { ref, near } = useNearViewport();
 
   return (
-    <Section id="architecture" tone="dark" className="bg-noise">
-      <div className="bg-grid-dark absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_75%)]" aria-hidden="true" />
+    <Section id="architecture" tone="dark" className="bg-noise !py-14 md:!py-16">
+      <div
+        className="bg-grid-dark absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_75%)]"
+        aria-hidden="true"
+      />
       <div
         aria-hidden="true"
         className="animate-aurora pointer-events-none absolute top-0 left-1/4 h-[50vh] w-[40vw] rounded-full bg-forest-600/18 blur-[130px]"
       />
 
-      <div className="container-site relative">
-        <SectionHeading
-          eyebrow={ECOSYSTEM.eyebrow}
-          title={ECOSYSTEM.title}
-          paragraph={ECOSYSTEM.paragraph}
-          tone="dark"
-        />
+      {/* Whole section is sized to sit inside one viewport on desktop */}
+      <div className="container-site relative flex flex-col justify-center lg:min-h-[calc(100svh-8rem)]">
+        {/* Compact heading — this section trades heading height for model size */}
+        <Reveal>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="font-labels mb-3 text-[12px] font-semibold tracking-[0.22em] text-cream uppercase">
+              {ECOSYSTEM.eyebrow}
+            </p>
+            <h2 className="font-heading text-3xl leading-[1.1] font-semibold tracking-tight text-balance text-white md:text-[42px]">
+              {ECOSYSTEM.title}
+            </h2>
+            <p className="mx-auto mt-3.5 max-w-2xl text-[15.5px] leading-relaxed text-cream">
+              {ECOSYSTEM.paragraph}
+            </p>
+          </div>
+        </Reveal>
 
-        {/* 3D solar system (desktop / tablet) */}
-        <div ref={ref} className="relative mx-auto hidden aspect-[4/3] w-full max-w-[1150px] md:block">
-          {near && <EcosystemScene />}
-          <p className="font-labels pointer-events-none absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-2 text-[12px] tracking-[0.18em] text-cream uppercase">
-            <MousePointer2 className="size-3.5" aria-hidden="true" />
-            Drag to explore the ecosystem
-          </p>
+        {/* Legend · model · legend */}
+        <div className="mt-7 grid items-center gap-6 lg:grid-cols-[minmax(150px,180px)_1fr_minmax(150px,180px)] lg:gap-7">
+          <AgentColumn
+            title="Internal Agents"
+            agents={INTERNAL}
+            accent="text-forest-300"
+            align="left"
+          />
+
+          {/* 3D model — fixed aspect so the section height stays predictable */}
+          <div
+            ref={ref}
+            className="relative hidden aspect-[16/10] w-full lg:block"
+          >
+            {near && <EcosystemScene />}
+            <InteractionHint />
+          </div>
+
+          <AgentColumn
+            title="External Agents"
+            agents={EXTERNAL}
+            accent="text-cream"
+            align="right"
+          />
         </div>
 
-        {/* Agent legend / mobile representation */}
-        <Stagger className="mx-auto mt-10 grid max-w-4xl gap-8 sm:grid-cols-2 md:mt-14" staggerDelay={0.12}>
-          {[
-            { title: "Internal Agents", agents: INTERNAL, accent: "text-forest-300", ring: "border-forest-400/25" },
-            { title: "External Agents", agents: EXTERNAL, accent: "text-cream", ring: "border-cream/25" },
-          ].map((group) => (
-            <StaggerItem key={group.title}>
-              <div className={`glass-dark h-full rounded-3xl p-7 ${group.ring}`}>
-                <h3 className={`font-labels text-[13px] font-semibold tracking-[0.2em] uppercase ${group.accent}`}>
-                  {group.title}
-                </h3>
-                <ul className="mt-5 grid grid-cols-2 gap-3">
-                  {group.agents.map(({ label, Icon }) => (
-                    <li
-                      key={label}
-                      className="flex items-center gap-2.5 rounded-xl border border-white/8 bg-white/[0.03] px-3.5 py-3 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.06]"
-                    >
-                      <Icon className={`size-4 shrink-0 ${group.accent}`} aria-hidden="true" />
-                      <span className="text-[13.5px] font-medium text-cream">{label}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </StaggerItem>
-          ))}
-        </Stagger>
-
-        <Reveal delay={0.2}>
-          <p className="font-labels mt-12 text-center text-[13px] tracking-[0.16em] text-cream uppercase">
-            Every agent starts with <span className="text-cream">ELLIE</span> — orchestrated through the Model Context Protocol
+        <Reveal delay={0.15}>
+          <p className="font-labels mt-7 text-center text-[12px] tracking-[0.16em] text-cream/85 uppercase">
+            Every agent starts with ELLIE — orchestrated through the Model Context Protocol
           </p>
         </Reveal>
       </div>

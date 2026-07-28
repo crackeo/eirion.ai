@@ -259,20 +259,28 @@ function Stars() {
   );
 }
 
-function System({ reduceMotion }: { reduceMotion: boolean }) {
+function System({ reduceMotion, zoom }: { reduceMotion: boolean; zoom: number }) {
   const group = useRef<THREE.Group>(null);
+  const scaler = useRef<THREE.Group>(null);
 
   useFrame((_, delta) => {
     if (group.current && !reduceMotion) group.current.rotation.y += delta * 0.04;
+    // ease toward the target zoom so wheel steps feel smooth, not steppy
+    if (scaler.current) {
+      const s = scaler.current.scale.x;
+      scaler.current.scale.setScalar(s + (zoom - s) * Math.min(1, delta * 8));
+    }
   });
 
   return (
+    <group ref={scaler}>
     <group ref={group}>
       <Sun />
       {ORBITS.map((orbit) => (
         <Orbit key={orbit.radius} orbit={orbit} reduceMotion={reduceMotion} />
       ))}
       <Stars />
+    </group>
     </group>
   );
 }
@@ -282,6 +290,24 @@ export default function EcosystemScene() {
   const [frameloop, setFrameloop] = useState<"always" | "never">("always");
   const [lost, setLost] = useState(false);
   // Client-only component (dynamic ssr:false), so window is safe at first render
+  const [zoom, setZoom] = useState(1);
+
+  // Zoom is gated behind Ctrl / Cmd so a plain wheel still scrolls the page.
+  // Implemented by scaling the system rather than dollying the camera, which
+  // keeps OrbitControls purely responsible for rotation. preventDefault also
+  // suppresses the browser's own Ctrl+wheel page zoom.
+  useEffect(() => {
+    const el = wrapper.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      if (!(e.ctrlKey || e.metaKey)) return; // let the page scroll
+      e.preventDefault();
+      setZoom((z) => Math.min(2.1, Math.max(0.55, z * (1 - e.deltaY * 0.0016))));
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, []);
+
   const [reduceMotion] = useState(
     () => window.matchMedia("(prefers-reduced-motion: reduce)").matches
   );
@@ -304,7 +330,7 @@ export default function EcosystemScene() {
       <Canvas
         dpr={[1, 1.75]}
         frameloop={frameloop}
-        camera={{ position: [0, 2.2, 6.9], fov: 45 }}
+        camera={{ position: [0, 2.2, 7.0], fov: 45 }}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
         // overflow visible lets the DOM label chips travel past the canvas
         // edge instead of being clipped mid-orbit (R3F merges this style
@@ -322,7 +348,7 @@ export default function EcosystemScene() {
         }}
       >
         <ambientLight intensity={0.35} />
-        <System reduceMotion={reduceMotion} />
+        <System reduceMotion={reduceMotion} zoom={zoom} />
         <OrbitControls
           enableZoom={false}
           enablePan={false}
