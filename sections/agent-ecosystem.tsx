@@ -101,7 +101,7 @@ function AgentColumn({
   align: "left" | "right";
 }) {
   return (
-    <div className={align === "right" ? "lg:text-right" : ""}>
+    <div className={`lg:self-center ${align === "right" ? "lg:text-right" : ""}`}>
       <h3
         className={`font-labels text-[11.5px] font-semibold tracking-[0.2em] uppercase ${accent}`}
       >
@@ -165,7 +165,7 @@ export function AgentEcosystem() {
       />
 
       {/* Whole section is sized to sit inside one viewport on desktop */}
-      <div className="container-site relative flex flex-col justify-center lg:min-h-[calc(100svh-8rem)]">
+      <div className="container-site relative flex flex-col lg:min-h-[calc(100svh-8.5rem)] lg:justify-between">
         {/* Compact heading — this section trades heading height for model size */}
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
@@ -182,18 +182,18 @@ export function AgentEcosystem() {
         </Reveal>
 
         {/* Legend · model · legend */}
-        <div className="mt-7 grid items-center gap-6 lg:grid-cols-[minmax(150px,180px)_1fr_minmax(150px,180px)] lg:gap-7">
+        <div className="mt-5 grid items-center gap-6 lg:mt-3 lg:min-h-0 lg:flex-1 lg:grid-cols-[minmax(150px,180px)_1fr_minmax(150px,180px)] lg:items-stretch lg:gap-7">
           <AgentColumn
             title="Internal Agents"
             agents={INTERNAL}
-            accent="text-forest-300"
+            accent="text-gold-400"
             align="left"
           />
 
           {/* 3D model — fixed aspect so the section height stays predictable */}
           <div
             ref={ref}
-            className="relative hidden aspect-[16/10] w-full lg:block"
+            className="relative hidden aspect-[16/10] w-full lg:block lg:aspect-auto lg:h-full lg:min-h-0"
           >
             {near && <EcosystemScene />}
             <InteractionHint />
@@ -208,7 +208,7 @@ export function AgentEcosystem() {
         </div>
 
         <Reveal delay={0.15}>
-          <p className="font-labels mt-7 text-center text-[12px] tracking-[0.16em] text-cream/85 uppercase">
+          <p className="font-labels mt-5 lg:mt-3 text-center text-[12px] tracking-[0.16em] text-cream/85 uppercase">
             Every agent starts with ELLIE — orchestrated through the Model Context Protocol
           </p>
         </Reveal>

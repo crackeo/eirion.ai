@@ -29,7 +29,7 @@ interface OrbitDef {
 
 const ORBITS: OrbitDef[] = [
   {
-    radius: 1.9,
+    radius: 1.8,
     speed: 0.16,
     tiltX: 0.32,
     tiltZ: 0.1,
@@ -40,7 +40,7 @@ const ORBITS: OrbitDef[] = [
     ],
   },
   {
-    radius: 2.85,
+    radius: 2.5,
     speed: -0.11,
     tiltX: 0.5,
     tiltZ: -0.18,
@@ -52,7 +52,7 @@ const ORBITS: OrbitDef[] = [
     ],
   },
   {
-    radius: 3.2,
+    radius: 3.1,
     speed: 0.08,
     tiltX: 0.24,
     tiltZ: 0.3,
@@ -61,11 +61,15 @@ const ORBITS: OrbitDef[] = [
 ];
 
 const COLORS = {
-  internal: "#eef8e6",
-  internalGlow: "#ffffff",
-  external: "#0d3d20",
-  externalGlow: "#11562d",
-  ring: "#d6f5df",
+  // Logo gold (sampled from newlogo.png: #f2b103) for internal agents;
+  // a paler champagne gold for external, so both read as gold while the
+  // two groups stay tellable apart. The previous dark green measured
+  // 1.40:1 against this section's background — effectively invisible.
+  internal: "#f5b81c",
+  internalGlow: "#ffd97a",
+  external: "#f6e3b0",
+  externalGlow: "#fff3d4",
+  ring: "#e8d9a8",
 };
 
 /** Points forming an orbit ring circle in the XZ plane. */
@@ -124,7 +128,7 @@ function Planet({ agent, radius, reduceMotion }: { agent: AgentDef; radius: numb
             letterSpacing: "0.02em",
             color: "#fbf9f1",
             background: "rgba(18,69,41,0.72)",
-            border: `1px solid ${agent.kind === "internal" ? "rgba(125,219,157,0.45)" : "rgba(210,169,43,0.45)"}`,
+            border: `1px solid ${agent.kind === "internal" ? "rgba(245,184,28,0.55)" : "rgba(246,227,176,0.5)"}`,
             backdropFilter: "blur(8px)",
             boxShadow: "0 8px 24px -8px rgba(0,0,0,0.6)",
           }}
@@ -330,7 +334,7 @@ export default function EcosystemScene() {
       <Canvas
         dpr={[1, 1.75]}
         frameloop={frameloop}
-        camera={{ position: [0, 2.2, 7.0], fov: 45 }}
+        camera={{ position: [0, 3.4, 8.6], fov: 45 }}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
         // overflow visible lets the DOM label chips travel past the canvas
         // edge instead of being clipped mid-orbit (R3F merges this style
