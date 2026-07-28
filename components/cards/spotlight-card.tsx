@@ -17,7 +17,7 @@ interface SpotlightCardProps {
 export function SpotlightCard({
   children,
   className,
-  glow = "rgba(226,196,92,0.14)",
+  glow = "rgba(210,169,43,0.14)",
   tone = "light",
   lift = true,
 }: SpotlightCardProps) {
@@ -49,7 +49,7 @@ export function SpotlightCard({
         "group relative overflow-hidden rounded-3xl",
         tone === "dark"
           ? "border border-white/10 bg-forest-900/70 shadow-[0_24px_70px_-30px_rgba(0,0,0,0.6)]"
-          : "border border-forest-800/10 bg-white shadow-[0_18px_50px_-24px_rgba(5,43,20,0.18)]",
+          : "border border-forest-800/10 bg-white shadow-[0_18px_50px_-24px_rgba(26,81,51,0.18)]",
         className
       )}
     >

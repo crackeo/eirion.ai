@@ -14,19 +14,19 @@ const CERT_META: Record<string, { Icon: LucideIcon; caption: string }> = {
 function ShieldBadge({ name }: { name: string }) {
   const { Icon, caption } = CERT_META[name];
   return (
-    <div className="relative h-[104px] w-[88px] shrink-0 drop-shadow-[0_10px_18px_rgba(5,43,20,0.35)]">
+    <div className="relative h-[104px] w-[88px] shrink-0 drop-shadow-[0_10px_18px_rgba(26,81,51,0.35)]">
       <svg viewBox="0 0 88 104" className="absolute inset-0 h-full w-full" aria-hidden="true">
         <defs>
           <linearGradient id={`shield-${name.replace(/\s/g, "")}`} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#1f7a53" />
-            <stop offset="55%" stopColor="#105522" />
-            <stop offset="100%" stopColor="#052b14" />
+            <stop offset="0%" stopColor="#33a163" />
+            <stop offset="55%" stopColor="#1f6b41" />
+            <stop offset="100%" stopColor="#1a5133" />
           </linearGradient>
         </defs>
         <path
           d="M44 2 82 14 v38 c0 24 -16 40 -38 50 C22 92 6 76 6 52 V14 Z"
           fill={`url(#shield-${name.replace(/\s/g, "")})`}
-          stroke="#e2c45c"
+          stroke="#d2a92b"
           strokeOpacity="0.35"
           strokeWidth="1.5"
         />
@@ -61,7 +61,7 @@ export function Security() {
         <Stagger className="grid gap-8 lg:grid-cols-3" staggerDelay={0.14}>
           {SECURITY.certifications.map((cert) => (
             <StaggerItem key={cert.name}>
-              <div className="group h-full overflow-hidden rounded-2xl bg-white shadow-[0_20px_50px_-28px_rgba(5,43,20,0.35)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-26px_rgba(5,43,20,0.4)]">
+              <div className="group h-full overflow-hidden rounded-2xl bg-white shadow-[0_20px_50px_-28px_rgba(26,81,51,0.35)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-26px_rgba(26,81,51,0.4)]">
                 {/* Gradient top bar */}
                 <div
                   aria-hidden="true"

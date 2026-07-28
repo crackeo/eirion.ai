@@ -2,25 +2,26 @@
 
 @theme {
   /* ── Naturalist palette ─────────────────────────────── */
-  --color-forest-950: #001a0e;
-  --color-forest-900: #052b14;
-  --color-forest-800: #0a4520;
-  --color-forest-700: #105522;
-  --color-forest-600: #187127;
-  --color-forest-500: #1f7a53;
-  --color-forest-400: #46a071;
-  --color-forest-300: #7bbf97;
-  --color-forest-200: #b9dcc6;
-  --color-forest-100: #e8f3d4;
-  --color-forest-50: #f0f7ee;
+  --color-forest-950: #16452c;
+  --color-forest-900: #1a5133;
+  --color-forest-800: #1c5e3b;
+  --color-forest-700: #1f6b41;
+  --color-forest-600: #227449;
+  --color-forest-500: #33a163;
+  --color-forest-400: #5cbd85;
+  --color-forest-300: #8ecfa4;
+  --color-forest-200: #b5e2c6;
+  --color-forest-100: #dcf1e2;
+  --color-forest-50: #e6f5e8;
 
-  --color-gold-600: #c9a227;
-  --color-gold-500: #e2c45c;
-  --color-gold-400: #ecd88a;
-  --color-amber-brand: #f0a302;
+  --color-gold-700: #84640e; /* text-grade gold, AA on light */
+  --color-gold-600: #b8911f;
+  --color-gold-500: #d2a92b;
+  --color-gold-400: #e6c95f;
+  --color-amber-brand: #e09a06;
 
-  --color-cream: #faf9f4;
-  --color-ink: #0b1410;
+  --color-cream: #f5fbf5;
+  --color-ink: #12271b;
 
   /* ── Typography ─────────────────────────────────────── */
   --font-heading: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
@@ -79,7 +80,7 @@ body {
 }
 
 ::selection {
-  background: var(--color-forest-500);
+  background: var(--color-forest-700);
   color: #fff;
 }
 
@@ -117,11 +118,11 @@ body {
   background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(10, 69, 32, 0.08);
+  border: 1px solid rgba(28,94,59, 0.08);
 }
 
 @utility text-gradient-gold {
-  background: linear-gradient(100deg, #e2c45c 0%, #f0a302 45%, #e2c45c 100%);
+  background: linear-gradient(100deg, #e6c95f 0%, #d2a92b 45%, #e6c95f 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -129,7 +130,7 @@ body {
 }
 
 @utility text-gradient-forest {
-  background: linear-gradient(100deg, #105522, #1f7a53 55%, #c9a227);
+  background: linear-gradient(100deg, #1f6b41, #33a163 55%, #b8911f);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -144,8 +145,8 @@ body {
 }
 .bg-grid-light {
   background-image:
-    linear-gradient(rgba(10, 69, 32, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(10, 69, 32, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(28,94,59, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28,94,59, 0.05) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 

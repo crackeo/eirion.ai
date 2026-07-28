@@ -55,7 +55,7 @@ export function Baseline() {
             const { Icon, tile, check } = layerStyles[i];
             return (
               <StaggerItem key={layer.title}>
-                <div className="group h-full rounded-lg bg-white p-8 shadow-[0_10px_34px_-26px_rgba(5,43,20,0.35)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_48px_-24px_rgba(5,43,20,0.35)] md:p-9">
+                <div className="group h-full rounded-lg bg-white p-8 shadow-[0_10px_34px_-26px_rgba(26,81,51,0.35)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_48px_-24px_rgba(26,81,51,0.35)] md:p-9">
                   <span className={`grid size-14 place-items-center rounded-xl transition-transform duration-500 group-hover:scale-105 ${tile}`}>
                     <Icon className="size-6" aria-hidden="true" />
                   </span>

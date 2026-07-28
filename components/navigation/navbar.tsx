@@ -37,7 +37,7 @@ export function Navbar() {
         className={cn(
           "flex w-full max-w-[1180px] items-center justify-between rounded-2xl px-5 py-3 transition-all duration-500 md:px-7",
           scrolled || menuOpen
-            ? "border border-white/12 bg-forest-950/85 shadow-[0_16px_50px_-16px_rgba(0,26,14,0.7)] backdrop-blur-xl"
+            ? "border border-white/12 bg-forest-950/85 shadow-[0_16px_50px_-16px_rgba(22,69,44,0.7)] backdrop-blur-xl"
             : "border border-transparent bg-transparent"
         )}
       >
@@ -80,7 +80,7 @@ export function Navbar() {
             href="#cta"
             whileHover={reduceMotion ? undefined : { scale: 1.04 }}
             whileTap={reduceMotion ? undefined : { scale: 0.96 }}
-            className="font-labels hidden rounded-full bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 bg-[length:200%_auto] px-5 py-2.5 text-[14px] font-semibold text-forest-950 shadow-[0_6px_24px_-6px_rgba(201,162,39,0.6)] transition-[background-position] duration-500 hover:bg-right md:block"
+            className="font-labels hidden rounded-full bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 bg-[length:200%_auto] px-5 py-2.5 text-[14px] font-semibold text-forest-950 shadow-[0_6px_24px_-6px_rgba(184,145,31,0.6)] transition-[background-position] duration-500 hover:bg-right md:block"
           >
             Meet ELLIE
           </m.a>

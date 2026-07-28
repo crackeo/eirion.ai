@@ -19,7 +19,7 @@ export function Intelligence() {
             const Icon = featureIcons[i];
             return (
               <StaggerItem key={feature.title}>
-                <SpotlightCard className="h-full p-8 md:p-9" glow="rgba(31,122,83,0.10)">
+                <SpotlightCard className="h-full p-8 md:p-9" glow="rgba(51,161,99,0.10)">
                   <div className="flex items-center justify-between">
                     <span className="grid size-12 place-items-center rounded-2xl bg-forest-100 text-forest-700 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                       <Icon className="size-5" aria-hidden="true" />
