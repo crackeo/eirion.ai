@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { m, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
+import { m, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import { HERO } from "@/constants/content";
 import { WordReveal } from "@/components/animations/word-reveal";
 import { RotatingText } from "@/components/animations/rotating-text";
@@ -10,11 +11,48 @@ import { Button } from "@/components/ui/button";
 import { HeroCards } from "@/components/hero/hero-cards";
 import { HeroOrbit } from "@/components/hero/hero-orbit";
 
+/** Scroll-linked parallax for the hero visual.
+ *
+ *  Progress runs 0 -> 1 as the hero scrolls out of view. The ring drifts and
+ *  grows faster than the character, which reads as depth; the character lags
+ *  slightly so she lingers a beat longer. Transform/opacity only, so this
+ *  stays on the compositor and never touches layout (CLS stays 0). */
+function useHeroParallax(target: React.RefObject<HTMLElement | null>) {
+  const { scrollYProgress } = useScroll({
+    target,
+    offset: ["start start", "end start"],
+  });
+  // smooth the raw progress so the drift feels weighted rather than twitchy
+  const p = useSpring(scrollYProgress, { stiffness: 90, damping: 30, restDelta: 0.001 });
+
+  return {
+    ringY: useTransform(p, [0, 1], [0, 130]),
+    ringScale: useTransform(p, [0, 1], [1, 1.14]),
+    ringRotate: useTransform(p, [0, 1], [0, 26]),
+    ringOpacity: useTransform(p, [0, 0.75, 1], [1, 0.55, 0.2]),
+    girlY: useTransform(p, [0, 1], [0, 72]),
+    girlScale: useTransform(p, [0, 1], [1, 1.05]),
+  };
+}
+
 export function Hero() {
   const reduceMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { ringY, ringScale, ringRotate, ringOpacity, girlY, girlScale } =
+    useHeroParallax(sectionRef);
+
+  // both ring layers share one transform so the circle never splits in half
+  const ringStyle = reduceMotion
+    ? undefined
+    : { y: ringY, scale: ringScale, rotate: ringRotate, opacity: ringOpacity,
+        transformOrigin: "55% 48%" as const };
+  const girlStyle = reduceMotion ? undefined : { y: girlY, scale: girlScale };
 
   return (
-    <section className="bg-noise relative flex min-h-svh items-center overflow-hidden bg-band text-white [@media(min-height:1100px)]:min-h-[980px]">
+    <section
+      ref={sectionRef}
+      className="bg-noise relative flex min-h-svh items-center overflow-hidden bg-band text-white [@media(min-height:1100px)]:min-h-[980px]"
+    >
       {/* ── Background system ─────────────────────────── */}
       <div aria-hidden="true" className="absolute inset-0">
         <div className="bg-grid-dark absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_78%)]" />
@@ -90,8 +128,10 @@ export function Hero() {
         {/* ── Visual column: ELLIE illustration + overlay cards ──
             Scaled up on wide screens so the character reads at full size */}
         <div className="relative mx-auto w-full max-w-[460px] sm:max-w-[600px] lg:max-w-none lg:scale-[1.14] xl:scale-[1.28] xl:translate-x-3">
-          {/* Animated orbital ring — sits BEHIND her */}
-          <HeroOrbit />
+          {/* Animated orbital ring — sits BEHIND her, drifts on scroll */}
+          <m.div className="pointer-events-none absolute inset-0 z-0" style={ringStyle}>
+            <HeroOrbit />
+          </m.div>
           {/* Soft halo grounding the character on the dark backdrop */}
           <div
             aria-hidden="true"
@@ -100,30 +140,48 @@ export function Hero() {
           {/* NOTE: width/height (x-descriptor srcset) instead of fill+sizes —
               responsive w-descriptor selection stalls in some Chrome contexts,
               and containment must not sit on the <img>'s own parent. */}
-          <div className="anim-scale relative" style={{ animationDelay: "0.35s" }}>
-            {/* Soft emerald glow grounding her where the fade begins */}
-            <div
-              aria-hidden="true"
-              className="animate-pulse-soft absolute bottom-[2%] left-1/2 h-[16%] w-[46%] -translate-x-1/2 rounded-[50%] bg-forest-400/25 blur-[42px]"
-            />
-            <Image
-              src="/ellie-hero-big.webp"
-              alt="ELLIE, the interactive AI health coach, holding a yoga mat and water bottle, surrounded by live patient monitoring cards"
-              width={970}
-              height={1024}
-              priority
-              sizes="(max-width: 640px) 88vw, (max-width: 1024px) 540px, 42vw"
-              className="h-auto w-full [mask-image:linear-gradient(to_bottom,black_72%,transparent_97%)]"
-            />
-            {/* Lower arc of the same ring, drawn IN FRONT of her body so the
-                ring wraps her — while her hand crosses outside it. Nested
-                here (not as a sibling) so the cards below still share the
-                image's box and stay pixel-aligned to the baked artwork. */}
-            <HeroOrbit variant="front" />
-            <div className="absolute inset-0 z-30 [container-type:inline-size]">
-              <HeroCards />
+          {/* Character — lags slightly behind the ring on scroll */}
+          <m.div style={girlStyle}>
+            <div className="anim-scale relative" style={{ animationDelay: "0.35s" }}>
+              {/* Soft emerald glow grounding her where the fade begins */}
+              <div
+                aria-hidden="true"
+                className="animate-pulse-soft absolute bottom-[2%] left-1/2 h-[16%] w-[46%] -translate-x-1/2 rounded-[50%] bg-forest-400/25 blur-[42px]"
+              />
+              <Image
+                src="/ellie-hero-big.webp"
+                alt="ELLIE, the interactive AI health coach, holding a yoga mat and water bottle, surrounded by live patient monitoring cards"
+                width={970}
+                height={1024}
+                priority
+                sizes="(max-width: 640px) 88vw, (max-width: 1024px) 540px, 42vw"
+                className="h-auto w-full [mask-image:linear-gradient(to_bottom,black_72%,transparent_97%)]"
+              />
             </div>
-          </div>
+          </m.div>
+
+          {/* Lower arc of the same ring, IN FRONT of her legs so the ring
+              wraps her body. Shares ringStyle with the back layer so the two
+              halves stay welded together while scrolling. */}
+          <m.div
+            className="pointer-events-none absolute inset-0 z-20"
+            style={ringStyle}
+          >
+            <HeroOrbit variant="front" />
+          </m.div>
+
+          {/* Stat cards. Box is pinned to the image's own aspect ratio rather
+              than inset-0, so they stay pixel-aligned to the baked artwork
+              even as a sibling — and they ride the same transform as her. */}
+          <m.div
+            className="absolute inset-x-0 top-0 z-30 aspect-[970/1024] [container-type:inline-size]"
+            style={girlStyle}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <HeroCards />
+          </m.div>
         </div>
       </div>
 
