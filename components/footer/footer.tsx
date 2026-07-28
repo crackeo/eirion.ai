@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { m, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { FOOTER } from "@/constants/content";
@@ -57,7 +58,7 @@ export function Footer() {
           {/* Brand + newsletter */}
           <Reveal>
             <div>
-              <a href="#" className="inline-flex items-center" aria-label="eirion.ai home">
+              <Link href="/" className="inline-flex items-center" aria-label="eirion.ai home">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/logo-mark.webp"
@@ -66,7 +67,7 @@ export function Footer() {
                   height={200}
                   className="h-10 w-auto"
                 />
-              </a>
+              </Link>
               <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-cream">
                 {FOOTER.tagline}
               </p>
@@ -129,7 +130,7 @@ export function Footer() {
                     {column.links.map((link) => (
                       <li key={link}>
                         <a
-                          href="#"
+                          href={link === "Contact" ? "/contact" : "#"}
                           className="group relative text-[15px] text-cream transition-colors hover:text-white"
                         >
                           {link}

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import {
   m,
@@ -42,7 +43,7 @@ export function Navbar() {
         )}
       >
         {/* Logo */}
-        <a href="#" className="group flex items-center" aria-label="eirion.ai home">
+        <Link href="/" className="group flex items-center" aria-label="eirion.ai home">
           <m.img
             src="/logo-mark.webp"
             alt="eirion.ai"
@@ -52,7 +53,7 @@ export function Navbar() {
             whileHover={reduceMotion ? undefined : { scale: 1.04 }}
             transition={{ type: "spring", stiffness: 300, damping: 15 }}
           />
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <ul className="hidden items-center gap-8 lg:flex">
@@ -77,7 +78,7 @@ export function Navbar() {
             Login
           </a>
           <m.a
-            href="#cta"
+            href="/#cta"
             whileHover={reduceMotion ? undefined : { scale: 1.04 }}
             whileTap={reduceMotion ? undefined : { scale: 0.96 }}
             className="font-labels hidden rounded-full bg-gradient-to-r bg-cream bg-[length:200%_auto] px-5 py-2.5 text-[14px] font-semibold text-forest-950 shadow-[0_6px_24px_-6px_rgba(10,46,24,0.4)] transition-[background-position] duration-500 hover:bg-right md:block"
@@ -126,13 +127,13 @@ export function Navbar() {
                 </m.li>
               ))}
               <li className="mt-3 border-t border-white/10 pt-4">
-                <a
-                  href="#cta"
+                <Link
+                  href="/#cta"
                   onClick={() => setMenuOpen(false)}
-                  className="font-labels block rounded-full bg-gradient-to-r bg-cream px-5 py-3 text-center text-[15px] font-semibold text-forest-950"
+                  className="font-labels block rounded-full bg-cream px-5 py-3 text-center text-[15px] font-semibold text-forest-950"
                 >
                   Meet ELLIE
-                </a>
+                </Link>
               </li>
             </ul>
           </m.div>

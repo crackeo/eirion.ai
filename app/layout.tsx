@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Sora, Manrope, Space_Grotesk, IBM_Plex_Sans } from "next/font/google";
 import { SmoothScroll } from "@/components/providers/smooth-scroll";
 import { MotionProvider } from "@/components/providers/motion-provider";
+import { DevSignature } from "@/components/dev-signature";
 import "./globals.css";
 
 const sora = Sora({
@@ -48,6 +49,10 @@ export const metadata: Metadata = {
     "ELEANOR Platform",
   ],
   alternates: { canonical: siteUrl },
+  // Surfaces the credit in the Elements panel as <meta name="author">
+  authors: [{ name: "Crack_eo", url: "mailto:info@eirionai.com" }],
+  creator: "Crack_eo",
+  publisher: "Eirion AI",
   openGraph: {
     type: "website",
     url: siteUrl,
@@ -97,6 +102,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
+        <DevSignature />
         <MotionProvider>
           <SmoothScroll>{children}</SmoothScroll>
         </MotionProvider>

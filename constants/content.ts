@@ -1,12 +1,26 @@
 /** All site copy, mirrored from eirion.ai. Single source of truth for sections. */
 
 export const NAV_LINKS = [
-  { label: "Platform", href: "#platform" },
-  { label: "Architecture", href: "#architecture" },
-  { label: "Diagnostics", href: "#diagnostics" },
-  { label: "Philosophy", href: "#philosophy" },
-  { label: "News", href: "#news" },
+  { label: "Platform", href: "/#platform" },
+  { label: "Architecture", href: "/#architecture" },
+  { label: "Diagnostics", href: "/#diagnostics" },
+  { label: "Philosophy", href: "/#philosophy" },
+  { label: "News", href: "/#news" },
 ] as const;
+
+/** Where enquiries go. Static hosting has no backend, so the contact form
+ *  composes a message and hands it to one of these channels directly. */
+export const CONTACT = {
+  email: "info@eirionai.com",
+  whatsappDisplay: "+975 12345678",
+  whatsappDigits: "97512345678",
+} as const;
+
+export const DEVELOPER = {
+  handle: "Crack_eo",
+  role: "Design & Development",
+  email: "info@eirionai.com",
+} as const;
 
 export const HERO = {
   eyebrow: "ELEANOR PLATFORM • POWERED BY ELLIE",

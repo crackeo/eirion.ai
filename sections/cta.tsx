@@ -88,7 +88,7 @@ export function Cta() {
           <Reveal delay={0.22}>
             <div className="mt-10 flex justify-center lg:justify-start">
               <Magnetic>
-                <Button href="#" size="lg" withArrow>
+                <Button href="/contact" size="lg" withArrow>
                   {CTA.button}
                 </Button>
               </Magnetic>
