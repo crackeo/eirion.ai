@@ -1,8 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { m, useReducedMotion } from "framer-motion";
 import { HERO } from "@/constants/content";
 import { WordReveal } from "@/components/animations/word-reveal";
@@ -10,39 +8,10 @@ import { RotatingText } from "@/components/animations/rotating-text";
 import { Magnetic } from "@/components/animations/magnetic";
 import { Button } from "@/components/ui/button";
 import { HeroCards } from "@/components/hero/hero-cards";
-
-const HeroScene = dynamic(() => import("@/components/hero/hero-scene"), {
-  ssr: false,
-  loading: () => (
-    <div
-      aria-hidden="true"
-      className="absolute inset-0 rounded-full bg-forest-500/10 blur-3xl"
-    />
-  ),
-});
-
-/** Mount the WebGL scene on the user's first interaction (or after a quiet
- *  fallback delay), so the three.js chunk never competes with LCP, TBT or
- *  hydration on the critical path. Any pointer, scroll or key input — which
- *  real visitors produce almost immediately — triggers it. */
-function useInteractionMount() {
-  const [ready, setReady] = useState(false);
-  useEffect(() => {
-    const events = ["pointermove", "pointerdown", "scroll", "keydown", "touchstart"] as const;
-    const arm = () => setReady(true);
-    events.forEach((e) => window.addEventListener(e, arm, { once: true, passive: true }));
-    const fallback = setTimeout(arm, 14000);
-    return () => {
-      events.forEach((e) => window.removeEventListener(e, arm));
-      clearTimeout(fallback);
-    };
-  }, []);
-  return ready;
-}
+import { HeroOrbit } from "@/components/hero/hero-orbit";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
-  const sceneReady = useInteractionMount();
 
   return (
     <section className="bg-noise relative flex min-h-svh items-center overflow-hidden bg-band text-white [@media(min-height:1100px)]:min-h-[980px]">
@@ -121,17 +90,8 @@ export function Hero() {
         {/* ── Visual column: ELLIE illustration + overlay cards ──
             Scaled up on wide screens so the character reads at full size */}
         <div className="relative mx-auto w-full max-w-[460px] sm:max-w-[600px] lg:max-w-none lg:scale-[1.14] xl:scale-[1.28] xl:translate-x-3">
-          {/* Ambient 3D constellation behind the character */}
-          <div className="absolute inset-[-14%]">
-            {sceneReady ? (
-              <HeroScene />
-            ) : (
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 rounded-full bg-forest-500/10 blur-3xl"
-              />
-            )}
-          </div>
+          {/* Animated orbital ring — sits BEHIND her */}
+          <HeroOrbit />
           {/* Soft halo grounding the character on the dark backdrop */}
           <div
             aria-hidden="true"
@@ -155,7 +115,12 @@ export function Hero() {
               sizes="(max-width: 640px) 88vw, (max-width: 1024px) 540px, 42vw"
               className="h-auto w-full [mask-image:linear-gradient(to_bottom,black_72%,transparent_97%)]"
             />
-            <div className="absolute inset-0 [container-type:inline-size]">
+            {/* Lower arc of the same ring, drawn IN FRONT of her body so the
+                ring wraps her — while her hand crosses outside it. Nested
+                here (not as a sibling) so the cards below still share the
+                image's box and stay pixel-aligned to the baked artwork. */}
+            <HeroOrbit variant="front" />
+            <div className="absolute inset-0 z-30 [container-type:inline-size]">
               <HeroCards />
             </div>
           </div>

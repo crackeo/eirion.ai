@@ -37,7 +37,9 @@
   --animate-pulse-soft: pulse-soft 3.2s ease-in-out infinite;
   --animate-shimmer: shimmer 2.8s linear infinite;
   --animate-float: float 7s ease-in-out infinite;
-  --animate-spin-slow: spin 24s linear infinite;
+  --animate-spin-slow: spin 90s linear infinite;
+  --animate-spin-slower: spin 140s linear infinite;
+  --animate-orbit-reverse: orbit-reverse 110s linear infinite;
 
   @keyframes marquee {
     from { transform: translateX(0); }
@@ -55,6 +57,10 @@
   @keyframes shimmer {
     from { background-position: 200% center; }
     to { background-position: -200% center; }
+  }
+  @keyframes orbit-reverse {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
   }
   @keyframes float {
     0%, 100% { transform: translateY(0); }
