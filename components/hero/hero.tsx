@@ -57,7 +57,7 @@ export function Hero() {
         <div className="absolute -top-32 left-1/2 h-[60vh] w-px -translate-x-40 rotate-[18deg] bg-gradient-to-b from-gold-500/35 to-transparent" />
         <div className="absolute -top-32 left-1/2 h-[50vh] w-px translate-x-52 rotate-[-14deg] bg-gradient-to-b from-forest-300/30 to-transparent" />
         {/* Vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(22,69,44,0.85)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(15,58,34,0.85)_100%)]" />
       </div>
 
       <div className="container-site relative grid items-center gap-16 pt-36 pb-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:pt-28">

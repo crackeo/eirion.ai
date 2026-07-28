@@ -16,7 +16,7 @@ const TRUST_BADGES = [
  *  Positions/sizes use container-query units so they track the image exactly. */
 function CtaCards() {
   const card =
-    "absolute overflow-hidden rounded-[1.6cqw] border border-forest-200/80 bg-white/95 shadow-[0_1.6cqw_4cqw_-1.2cqw_rgba(26,81,51,0.35)]";
+    "absolute overflow-hidden rounded-[1.6cqw] border border-forest-200/80 bg-white/95 shadow-[0_1.6cqw_4cqw_-1.2cqw_rgba(18,69,41,0.35)]";
 
   return (
     <div aria-hidden="true" className="absolute inset-0">

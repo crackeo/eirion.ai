@@ -8,7 +8,7 @@ export function Testimonial() {
     <Section tone="light" className="!py-[110px]">
       <div className="container-site">
         <Reveal>
-          <figure className="glass-light relative mx-auto max-w-4xl rounded-[36px] p-10 text-center shadow-[0_30px_90px_-40px_rgba(26,81,51,0.3)] md:p-16">
+          <figure className="glass-light relative mx-auto max-w-4xl rounded-[36px] p-10 text-center shadow-[0_30px_90px_-40px_rgba(18,69,41,0.3)] md:p-16">
             <span
               aria-hidden="true"
               className="font-heading pointer-events-none absolute -top-8 left-8 text-[120px] leading-none text-gold-600/20 md:left-12"

@@ -22,9 +22,9 @@ export function GrowthEngines() {
             const Icon = icons[i];
             return (
               <StaggerItem key={engine.title}>
-                <SpotlightCard className="h-full p-9 md:p-11" glow="rgba(51,161,99,0.10)">
+                <SpotlightCard className="h-full p-9 md:p-11" glow="rgba(22,163,74,0.10)">
                   <div className="flex items-start justify-between">
-                    <span className="grid size-14 place-items-center rounded-2xl bg-gradient-to-br from-forest-600 to-forest-800 text-white shadow-[0_10px_30px_-10px_rgba(31,107,65,0.6)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                    <span className="grid size-14 place-items-center rounded-2xl bg-gradient-to-br from-forest-600 to-forest-800 text-white shadow-[0_10px_30px_-10px_rgba(16,117,58,0.6)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                       <Icon className="size-6" aria-hidden="true" />
                     </span>
                     <span className="font-labels rounded-full border border-gold-600/25 bg-gold-500/10 px-3.5 py-1.5 text-[12px] font-semibold tracking-[0.14em] text-gold-700 uppercase">

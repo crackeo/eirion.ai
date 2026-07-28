@@ -14,7 +14,7 @@ import { Check, Dna, HeartPulse, ShieldCheck, Sparkles } from "lucide-react";
  */
 
 const card =
-  "absolute overflow-hidden rounded-[2.6cqw] border border-forest-200/80 bg-white shadow-[0_2.6cqw_6cqw_-2cqw_rgba(26,81,51,0.3)]";
+  "absolute overflow-hidden rounded-[2.6cqw] border border-forest-200/80 bg-white shadow-[0_2.6cqw_6cqw_-2cqw_rgba(18,69,41,0.3)]";
 const label =
   "font-labels flex items-center gap-[1.3cqw] text-[2.3cqw] font-semibold tracking-[0.08em] text-slate-500 uppercase";
 
@@ -53,9 +53,9 @@ function ScoreCard() {
       <div className="mt-[1.4cqw] flex items-center gap-[1.6cqw]">
         <div className="relative size-[8cqw] shrink-0">
           <svg viewBox="0 0 100 100" className="size-full -rotate-90" aria-hidden="true">
-            <circle cx="50" cy="50" r={r} fill="none" stroke="#dcf1e2" strokeWidth="10" />
+            <circle cx="50" cy="50" r={r} fill="none" stroke="#d9f5e1" strokeWidth="10" />
             <m.circle
-              cx="50" cy="50" r={r} fill="none" stroke="#33a163" strokeWidth="10"
+              cx="50" cy="50" r={r} fill="none" stroke="#16a34a" strokeWidth="10"
               strokeLinecap="round" strokeDasharray={2 * Math.PI * r}
               initial={{ strokeDashoffset: 2 * Math.PI * r }}
               whileInView={{ strokeDashoffset: 2 * Math.PI * r * (1 - 0.92) }}
@@ -74,7 +74,7 @@ function ScoreCard() {
       </div>
       {/* Mini trend line */}
       <svg viewBox="0 0 100 26" className="mt-[1.3cqw] w-full" aria-hidden="true">
-        <path d="M2 22 C14 20 18 14 28 15 S 46 20 56 13 74 6 98 4" fill="none" stroke="#5cbd85" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M2 22 C14 20 18 14 28 15 S 46 20 56 13 74 6 98 4" fill="none" stroke="#3cc46b" strokeWidth="2.5" strokeLinecap="round" />
       </svg>
     </div>
   );
@@ -121,7 +121,7 @@ function AdherenceCard() {
 function McpOrb() {
   return (
     <div
-      className="absolute left-[21.8%] top-[52.8%] grid size-[16.5cqw] place-items-center rounded-full bg-gradient-to-br from-forest-400 via-forest-600 to-forest-800 text-center shadow-[0_0_6.5cqw_1.3cqw_rgba(51,161,99,0.6)] ring-[0.45cqw] ring-white/70"
+      className="absolute left-[21.8%] top-[52.8%] grid size-[16.5cqw] place-items-center rounded-full bg-gradient-to-br from-forest-400 via-forest-600 to-forest-800 text-center shadow-[0_0_6.5cqw_1.3cqw_rgba(22,163,74,0.6)] ring-[0.45cqw] ring-white/70"
     >
       <div>
         <p className="font-heading text-[3.3cqw] leading-none font-bold text-white">MCP</p>

@@ -61,11 +61,11 @@ const ORBITS: OrbitDef[] = [
 ];
 
 const COLORS = {
-  internal: "#5cbd85",
-  internalGlow: "#8ecfa4",
+  internal: "#3cc46b",
+  internalGlow: "#7ddb9d",
   external: "#d2a92b",
   externalGlow: "#e09a06",
-  ring: "#45a877",
+  ring: "#2fb35f",
 };
 
 /** Points forming an orbit ring circle in the XZ plane. */
@@ -123,8 +123,8 @@ function Planet({ agent, radius, reduceMotion }: { agent: AgentDef; radius: numb
             fontWeight: 600,
             letterSpacing: "0.02em",
             color: "rgba(255,255,255,0.92)",
-            background: "rgba(26,81,51,0.72)",
-            border: `1px solid ${agent.kind === "internal" ? "rgba(142,207,164,0.45)" : "rgba(210,169,43,0.45)"}`,
+            background: "rgba(18,69,41,0.72)",
+            border: `1px solid ${agent.kind === "internal" ? "rgba(125,219,157,0.45)" : "rgba(210,169,43,0.45)"}`,
             backdropFilter: "blur(8px)",
             boxShadow: "0 8px 24px -8px rgba(0,0,0,0.6)",
           }}
@@ -254,7 +254,7 @@ function Stars() {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
-      <pointsMaterial color="#8ecfa4" size={0.03} sizeAttenuation transparent opacity={0.6} depthWrite={false} />
+      <pointsMaterial color="#7ddb9d" size={0.03} sizeAttenuation transparent opacity={0.6} depthWrite={false} />
     </points>
   );
 }

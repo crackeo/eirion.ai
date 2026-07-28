@@ -49,7 +49,7 @@ export function SpotlightCard({
         "group relative overflow-hidden rounded-3xl",
         tone === "dark"
           ? "border border-white/10 bg-forest-900/70 shadow-[0_24px_70px_-30px_rgba(0,0,0,0.6)]"
-          : "border border-forest-800/10 bg-white shadow-[0_18px_50px_-24px_rgba(26,81,51,0.18)]",
+          : "border border-forest-800/10 bg-white shadow-[0_18px_50px_-24px_rgba(18,69,41,0.18)]",
         className
       )}
     >

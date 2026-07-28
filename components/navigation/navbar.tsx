@@ -37,7 +37,7 @@ export function Navbar() {
         className={cn(
           "flex w-full max-w-[1180px] items-center justify-between rounded-2xl px-5 py-3 transition-all duration-500 md:px-7",
           scrolled || menuOpen
-            ? "border border-white/12 bg-forest-950/85 shadow-[0_16px_50px_-16px_rgba(22,69,44,0.7)] backdrop-blur-xl"
+            ? "border border-white/12 bg-forest-950/85 shadow-[0_16px_50px_-16px_rgba(15,58,34,0.7)] backdrop-blur-xl"
             : "border border-transparent bg-transparent"
         )}
       >

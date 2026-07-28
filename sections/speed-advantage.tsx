@@ -34,7 +34,7 @@ export function SpeedAdvantage() {
           </Reveal>
 
           <Reveal direction="left" delay={0.15}>
-            <div className="relative h-full overflow-hidden rounded-3xl bg-forest-950 p-9 shadow-[0_30px_80px_-30px_rgba(22,69,44,0.55)]">
+            <div className="relative h-full overflow-hidden rounded-3xl bg-forest-950 p-9 shadow-[0_30px_80px_-30px_rgba(15,58,34,0.55)]">
               <div
                 aria-hidden="true"
                 className="animate-pulse-soft absolute -top-20 -right-20 size-56 rounded-full bg-gold-500/15 blur-3xl"

@@ -99,7 +99,7 @@ function Constellation() {
           />
         </bufferGeometry>
         <pointsMaterial
-          color="#8ecfa4"
+          color="#7ddb9d"
           size={0.055}
           sizeAttenuation
           transparent
@@ -117,7 +117,7 @@ function Constellation() {
           />
         </bufferGeometry>
         <lineBasicMaterial
-          color="#33a163"
+          color="#16a34a"
           transparent
           opacity={0.28}
           depthWrite={false}
