@@ -1,0 +1,18 @@
+/* TEAM */
+
+    Design & Development: Crack_eo
+    Contact: info@eirionai.com
+    WhatsApp: +975 12345678
+
+/* SITE */
+
+    Site: eirion.ai — The AI Operating Layer for Healthcare
+    Standards: HTML5, CSS3, TypeScript, WCAG 2.2 AA
+    Components: Next.js, Tailwind CSS, Framer Motion,
+                React Three Fiber, Lenis
+    Language: English
+
+/* NOTE */
+
+    Curious about how something here was built?
+    Ask. I'd rather explain it than have you guess.
