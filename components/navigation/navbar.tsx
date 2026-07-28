@@ -37,7 +37,7 @@ export function Navbar() {
         className={cn(
           "flex w-full max-w-[1180px] items-center justify-between rounded-2xl px-5 py-3 transition-all duration-500 md:px-7",
           scrolled || menuOpen
-            ? "border border-white/12 bg-forest-950/85 shadow-[0_16px_50px_-16px_rgba(15,58,34,0.7)] backdrop-blur-xl"
+            ? "border border-white/12 bg-forest-900/92 shadow-[0_16px_50px_-16px_rgba(15,58,34,0.7)] backdrop-blur-xl"
             : "border border-transparent bg-transparent"
         )}
       >
@@ -60,10 +60,10 @@ export function Navbar() {
             <li key={link.label}>
               <a
                 href={link.href}
-                className="group font-labels relative py-2 text-[14px] font-medium text-white/75 transition-colors hover:text-white"
+                className="group font-labels relative py-2 text-[14px] font-medium text-cream transition-colors hover:text-white"
               >
                 {link.label}
-                <span className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-gradient-to-r from-gold-500 to-forest-400 transition-transform duration-300 group-hover:scale-x-100" />
+                <span className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-gradient-to-r from-forest-200 to-forest-400 transition-transform duration-300 group-hover:scale-x-100" />
               </a>
             </li>
           ))}
@@ -72,7 +72,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href="#"
-            className="font-labels hidden text-[14px] font-medium text-white/75 transition-colors hover:text-white md:block"
+            className="font-labels hidden text-[14px] font-medium text-cream transition-colors hover:text-white md:block"
           >
             Login
           </a>
@@ -80,7 +80,7 @@ export function Navbar() {
             href="#cta"
             whileHover={reduceMotion ? undefined : { scale: 1.04 }}
             whileTap={reduceMotion ? undefined : { scale: 0.96 }}
-            className="font-labels hidden rounded-full bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 bg-[length:200%_auto] px-5 py-2.5 text-[14px] font-semibold text-forest-950 shadow-[0_6px_24px_-6px_rgba(184,145,31,0.6)] transition-[background-position] duration-500 hover:bg-right md:block"
+            className="font-labels hidden rounded-full bg-gradient-to-r bg-cream bg-[length:200%_auto] px-5 py-2.5 text-[14px] font-semibold text-forest-950 shadow-[0_6px_24px_-6px_rgba(10,46,24,0.4)] transition-[background-position] duration-500 hover:bg-right md:block"
           >
             Meet ELLIE
           </m.a>
@@ -106,7 +106,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -12, scale: 0.98 }}
             transition={{ duration: 0.3, ease: [0.22, 0.61, 0.25, 1] }}
-            className="absolute inset-x-4 top-[84px] rounded-2xl border border-white/12 bg-forest-950/95 p-6 shadow-2xl backdrop-blur-xl lg:hidden"
+            className="absolute inset-x-4 top-[84px] rounded-2xl border border-white/12 bg-forest-900/96 p-6 shadow-2xl backdrop-blur-xl lg:hidden"
           >
             <ul className="flex flex-col gap-1">
               {NAV_LINKS.map((link, i) => (
@@ -119,7 +119,7 @@ export function Navbar() {
                   <a
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="font-labels block rounded-lg px-3 py-3 text-[16px] font-medium text-white/85 transition-colors hover:bg-white/5 hover:text-white"
+                    className="font-labels block rounded-lg px-3 py-3 text-[16px] font-medium text-cream transition-colors hover:bg-white/5 hover:text-white"
                   >
                     {link.label}
                   </a>
@@ -129,7 +129,7 @@ export function Navbar() {
                 <a
                   href="#cta"
                   onClick={() => setMenuOpen(false)}
-                  className="font-labels block rounded-full bg-gradient-to-r from-gold-600 to-gold-500 px-5 py-3 text-center text-[15px] font-semibold text-forest-950"
+                  className="font-labels block rounded-full bg-gradient-to-r bg-cream px-5 py-3 text-center text-[15px] font-semibold text-forest-950"
                 >
                   Meet ELLIE
                 </a>

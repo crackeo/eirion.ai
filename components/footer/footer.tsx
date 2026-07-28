@@ -40,10 +40,10 @@ export function Footer() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <footer className="relative overflow-hidden bg-forest-950 text-white">
+    <footer className="relative overflow-hidden bg-forest-900 text-white">
       {/* Animated gradient divider */}
       <div className="relative h-px w-full overflow-hidden">
-        <div className="animate-shimmer absolute inset-0 bg-gradient-to-r from-transparent via-gold-500 to-transparent bg-[length:200%_auto]" />
+        <div className="animate-shimmer absolute inset-0 bg-gradient-to-r from-transparent via-cream to-transparent bg-[length:200%_auto]" />
       </div>
 
       {/* Glow */}
@@ -67,7 +67,7 @@ export function Footer() {
                   className="h-10 w-auto"
                 />
               </a>
-              <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-white/55">
+              <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-cream">
                 {FOOTER.tagline}
               </p>
 
@@ -78,22 +78,22 @@ export function Footer() {
               >
                 <label
                   htmlFor="newsletter-email"
-                  className="font-labels mb-3 block text-[13px] font-semibold tracking-[0.18em] text-gold-500 uppercase"
+                  className="font-labels mb-3 block text-[13px] font-semibold tracking-[0.18em] text-cream uppercase"
                 >
                   Stay Informed
                 </label>
-                <div className="flex max-w-sm overflow-hidden rounded-full border border-white/15 bg-white/5 backdrop-blur-sm focus-within:border-gold-500/60">
+                <div className="flex max-w-sm overflow-hidden rounded-full border border-white/15 bg-white/5 backdrop-blur-sm focus-within:border-cream/60">
                   <input
                     id="newsletter-email"
                     type="email"
                     required
                     placeholder="Work email"
-                    className="w-full bg-transparent px-5 py-3 text-[15px] text-white placeholder:text-white/35 focus:outline-none"
+                    className="w-full bg-transparent px-5 py-3 text-[15px] text-white placeholder:text-cream/55 focus:outline-none"
                   />
                   <button
                     type="submit"
                     aria-label="Subscribe to newsletter"
-                    className="group m-1 grid shrink-0 place-items-center rounded-full bg-gradient-to-r from-gold-600 to-gold-500 px-4 text-forest-950 transition-transform hover:scale-105"
+                    className="group m-1 grid shrink-0 place-items-center rounded-full bg-cream px-4 text-forest-950 transition-transform hover:scale-105"
                   >
                     <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                   </button>
@@ -108,7 +108,7 @@ export function Footer() {
                     aria-label={label}
                     whileHover={reduceMotion ? undefined : { y: -3, scale: 1.08 }}
                     transition={{ type: "spring", stiffness: 340, damping: 18 }}
-                    className="grid size-10 place-items-center rounded-full border border-white/12 text-white/60 transition-colors hover:border-gold-500/50 hover:text-gold-500"
+                    className="grid size-10 place-items-center rounded-full border border-white/12 text-cream transition-colors hover:border-cream/50 hover:text-cream"
                   >
                     <Icon className="size-[17px]" />
                   </m.a>
@@ -122,7 +122,7 @@ export function Footer() {
             {FOOTER.columns.map((column, ci) => (
               <Reveal key={column.title} delay={ci * 0.08}>
                 <div>
-                  <h3 className="font-labels text-[13px] font-semibold tracking-[0.18em] text-white/40 uppercase">
+                  <h3 className="font-labels text-[13px] font-semibold tracking-[0.18em] text-cream uppercase">
                     {column.title}
                   </h3>
                   <ul className="mt-5 space-y-3.5">
@@ -130,10 +130,10 @@ export function Footer() {
                       <li key={link}>
                         <a
                           href="#"
-                          className="group relative text-[15px] text-white/65 transition-colors hover:text-white"
+                          className="group relative text-[15px] text-cream transition-colors hover:text-white"
                         >
                           {link}
-                          <span className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-gold-500/70 transition-transform duration-300 group-hover:scale-x-100" />
+                          <span className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-cream/70 transition-transform duration-300 group-hover:scale-x-100" />
                         </a>
                       </li>
                     ))}
@@ -145,7 +145,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col items-center justify-between gap-5 border-t border-white/10 pt-8 md:flex-row">
-          <p className="text-[14px] text-white/65">
+          <p className="text-[14px] text-cream">
             © {new Date().getFullYear()} Eirion AI. All rights reserved.
           </p>
           <ul className="flex gap-7">
@@ -153,7 +153,7 @@ export function Footer() {
               <li key={item}>
                 <a
                   href="#"
-                  className="text-[14px] text-white/65 transition-colors hover:text-white"
+                  className="text-[14px] text-cream transition-colors hover:text-white"
                 >
                   {item}
                 </a>

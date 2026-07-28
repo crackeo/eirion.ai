@@ -30,7 +30,7 @@ export function ClosedLoop() {
             className="absolute top-0 left-1/2 hidden h-full w-px -translate-x-1/2 bg-forest-800/10 lg:block"
           >
             <m.div
-              className="h-full w-full origin-top bg-gradient-to-b from-forest-500 via-gold-500 to-forest-500"
+              className="h-full w-full origin-top bg-gradient-to-b from-forest-500 via-forest-300 to-forest-500"
               style={{ scaleY: lineScale }}
             />
           </div>
@@ -41,11 +41,11 @@ export function ClosedLoop() {
                 key={step.number}
                 className={`lg:w-[calc(50%-48px)] ${i % 2 === 1 ? "lg:ml-auto" : ""}`}
               >
-                <div className="group relative rounded-3xl border border-forest-800/10 bg-white p-7 shadow-[0_16px_44px_-26px_rgba(18,69,41,0.22)] transition-all duration-500 hover:-translate-y-1.5 hover:border-gold-600/30 hover:shadow-[0_24px_60px_-24px_rgba(184,145,31,0.3)]">
+                <div className="group relative rounded-3xl border border-forest-800/10 bg-white p-7 shadow-[0_16px_44px_-26px_rgba(18,69,41,0.22)] transition-all duration-500 hover:-translate-y-1.5 hover:border-forest-500/40 hover:shadow-[0_24px_60px_-24px_rgba(30,178,87,0.28)]">
                   {/* Node dot on the spine */}
                   <span
                     aria-hidden="true"
-                    className={`absolute top-1/2 hidden size-3.5 -translate-y-1/2 rounded-full border-[3px] border-cream bg-forest-600 shadow-[0_0_0_4px_rgba(22,163,74,0.15)] transition-colors duration-300 group-hover:bg-gold-600 lg:block ${
+                    className={`absolute top-1/2 hidden size-3.5 -translate-y-1/2 rounded-full border-[3px] border-cream bg-forest-500 shadow-[0_0_0_4px_rgba(22,163,74,0.15)] transition-colors duration-300 group-hover:bg-forest-500 lg:block ${
                       i % 2 === 1 ? "left-[-55px]" : "right-[-55px]"
                     }`}
                   />

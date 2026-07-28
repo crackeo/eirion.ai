@@ -38,12 +38,12 @@ function ShieldBadge({ name }: { name: string }) {
         <p className="font-labels mt-1 text-[11px] leading-none font-bold tracking-wide whitespace-nowrap">
           {name}
         </p>
-        <p className="font-labels text-[6.5px] tracking-[0.22em] text-gold-400 uppercase">
+        <p className="font-labels text-[6.5px] tracking-[0.22em] text-cream uppercase">
           {caption}
         </p>
         <div className="mt-0.5 flex gap-[3px]" aria-hidden="true">
           {Array.from({ length: 5 }, (_, i) => (
-            <span key={i} className="size-[3px] rounded-full bg-gold-500/80" />
+            <span key={i} className="size-[3px] rounded-full bg-forest-300/100" />
           ))}
         </div>
       </div>

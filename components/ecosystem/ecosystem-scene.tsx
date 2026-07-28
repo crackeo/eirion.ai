@@ -61,11 +61,11 @@ const ORBITS: OrbitDef[] = [
 ];
 
 const COLORS = {
-  internal: "#3cc46b",
-  internalGlow: "#7ddb9d",
-  external: "#d2a92b",
-  externalGlow: "#e09a06",
-  ring: "#2fb35f",
+  internal: "#eef8e6",
+  internalGlow: "#ffffff",
+  external: "#0d3d20",
+  externalGlow: "#11562d",
+  ring: "#d6f5df",
 };
 
 /** Points forming an orbit ring circle in the XZ plane. */
@@ -122,7 +122,7 @@ function Planet({ agent, radius, reduceMotion }: { agent: AgentDef; radius: numb
             fontSize: "11.5px",
             fontWeight: 600,
             letterSpacing: "0.02em",
-            color: "rgba(255,255,255,0.92)",
+            color: "#fbf9f1",
             background: "rgba(18,69,41,0.72)",
             border: `1px solid ${agent.kind === "internal" ? "rgba(125,219,157,0.45)" : "rgba(210,169,43,0.45)"}`,
             backdropFilter: "blur(8px)",
@@ -184,17 +184,17 @@ function Sun() {
     <group>
       <mesh ref={core}>
         <icosahedronGeometry args={[0.55, 2]} />
-        <meshBasicMaterial color="#d2a92b" wireframe transparent opacity={0.9} />
+        <meshBasicMaterial color="#fbf9f1" wireframe transparent opacity={0.9} />
       </mesh>
       <mesh>
         <sphereGeometry args={[0.3, 32, 32]} />
-        <meshBasicMaterial color="#dfc069" />
+        <meshBasicMaterial color="#ffffff" />
       </mesh>
       <mesh ref={halo}>
         <sphereGeometry args={[0.55, 32, 32]} />
-        <meshBasicMaterial color="#b8911f" transparent opacity={0.14} depthWrite={false} />
+        <meshBasicMaterial color="#d6f5df" transparent opacity={0.14} depthWrite={false} />
       </mesh>
-      <pointLight color="#d2a92b" intensity={14} distance={12} decay={1.6} />
+      <pointLight color="#ffffff" intensity={14} distance={12} decay={1.6} />
       {/* Core label */}
       <Html center style={{ pointerEvents: "none" }} zIndexRange={[10, 0]}>
         <div style={{ textAlign: "center", transform: "translateY(46px)", whiteSpace: "nowrap" }}>
@@ -204,7 +204,7 @@ function Sun() {
               fontSize: "15px",
               fontWeight: 700,
               letterSpacing: "0.04em",
-              color: "#d2a92b",
+              color: "#fbf9f1",
               textShadow: "0 2px 12px rgba(0,0,0,0.8)",
             }}
           >
@@ -254,7 +254,7 @@ function Stars() {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
-      <pointsMaterial color="#7ddb9d" size={0.03} sizeAttenuation transparent opacity={0.6} depthWrite={false} />
+      <pointsMaterial color="#eef8e6" size={0.03} sizeAttenuation transparent opacity={0.6} depthWrite={false} />
     </points>
   );
 }

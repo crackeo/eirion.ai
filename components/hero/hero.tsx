@@ -45,26 +45,26 @@ export function Hero() {
   const sceneReady = useInteractionMount();
 
   return (
-    <section className="bg-noise relative flex min-h-svh items-center overflow-hidden bg-forest-950 text-white [@media(min-height:1100px)]:min-h-[980px]">
+    <section className="bg-noise relative flex min-h-svh items-center overflow-hidden bg-band text-white [@media(min-height:1100px)]:min-h-[980px]">
       {/* ── Background system ─────────────────────────── */}
       <div aria-hidden="true" className="absolute inset-0">
         <div className="bg-grid-dark absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_78%)]" />
         {/* Aurora blobs */}
         <div className="animate-aurora absolute -top-1/4 left-[-10%] h-[65vh] w-[55vw] rounded-full bg-forest-600/25 blur-[130px]" />
         <div className="animate-aurora absolute right-[-12%] bottom-[-20%] h-[60vh] w-[50vw] rounded-full bg-forest-500/20 blur-[140px] [animation-delay:-6s]" />
-        <div className="animate-aurora absolute top-[30%] right-[18%] h-[36vh] w-[26vw] rounded-full bg-gold-600/12 blur-[120px] [animation-delay:-11s]" />
+        <div className="animate-aurora absolute top-[30%] right-[18%] h-[36vh] w-[26vw] rounded-full bg-forest-400/14 blur-[120px] [animation-delay:-11s]" />
         {/* Light rays */}
-        <div className="absolute -top-32 left-1/2 h-[60vh] w-px -translate-x-40 rotate-[18deg] bg-gradient-to-b from-gold-500/35 to-transparent" />
+        <div className="absolute -top-32 left-1/2 h-[60vh] w-px -translate-x-40 rotate-[18deg] bg-gradient-to-b from-cream/35 to-transparent" />
         <div className="absolute -top-32 left-1/2 h-[50vh] w-px translate-x-52 rotate-[-14deg] bg-gradient-to-b from-forest-300/30 to-transparent" />
         {/* Vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(15,58,34,0.85)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(13,61,32,0.42)_100%)]" />
       </div>
 
       <div className="container-site relative grid items-center gap-16 pt-36 pb-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:pt-28">
         {/* ── Copy column (CSS-only entrances for instant LCP) ── */}
         <div className="max-w-2xl">
           <p
-            className="anim-rise font-labels mb-7 inline-flex items-center gap-2.5 rounded-full border border-gold-500/25 bg-gold-500/8 px-4 py-2 text-[12px] font-semibold tracking-[0.2em] text-gold-500 uppercase"
+            className="anim-rise font-labels mb-7 inline-flex items-center gap-2.5 rounded-full border border-cream/25 bg-forest-300/10 px-4 py-2 text-[12px] font-semibold tracking-[0.2em] text-cream uppercase"
           >
             <span className="relative flex size-1.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-500 opacity-70" />
@@ -88,14 +88,14 @@ export function Hero() {
           </h1>
 
           <p
-            className="anim-rise font-labels mt-6 text-lg font-medium text-forest-300 md:text-xl"
+            className="anim-rise font-labels mt-6 text-lg font-medium text-cream md:text-xl"
             style={{ animationDelay: "0.4s" }}
           >
             <RotatingText phrases={[...HERO.taglines]} />
           </p>
 
           <p
-            className="anim-rise mt-6 max-w-xl text-[17px] leading-relaxed text-white/60 md:text-lg"
+            className="anim-rise mt-6 max-w-xl text-[17px] leading-relaxed text-cream md:text-lg"
             style={{ animationDelay: "0.18s" }}
           >
             {HERO.paragraph}
@@ -172,7 +172,7 @@ export function Hero() {
       >
         <div className="flex h-9 w-5.5 items-start justify-center rounded-full border border-white/25 p-1.5">
           <m.div
-            className="size-1.5 rounded-full bg-gold-500"
+            className="size-1.5 rounded-full bg-cream"
             animate={reduceMotion ? undefined : { y: [0, 12, 0], opacity: [1, 0.3, 1] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
           />

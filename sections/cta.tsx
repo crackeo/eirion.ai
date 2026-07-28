@@ -48,7 +48,7 @@ function CtaCards() {
           Medication Adherence
         </p>
         <div className="mt-[0.9cqw] h-[0.9cqw] overflow-hidden rounded-full bg-forest-100">
-          <div className="h-full w-[97%] rounded-full bg-gradient-to-r from-forest-500 to-gold-500" />
+          <div className="h-full w-[97%] rounded-full bg-gradient-to-r from-forest-500 to-forest-400" />
         </div>
       </div>
     </div>
@@ -58,7 +58,7 @@ function CtaCards() {
 /** Final conversion section: copy left, ELLIE opening the data portal right. */
 export function Cta() {
   return (
-    <section id="cta" className="bg-noise relative overflow-hidden bg-forest-950 py-[110px] text-white md:py-[140px]">
+    <section id="cta" className="bg-noise relative overflow-hidden bg-band py-[110px] text-white md:py-[140px]">
       {/* Radiant background */}
       <div aria-hidden="true" className="absolute inset-0">
         <div className="animate-aurora absolute top-1/2 left-1/3 h-[70vh] w-[60vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-forest-600/25 blur-[150px]" />
@@ -78,7 +78,7 @@ export function Cta() {
           </Reveal>
 
           <Reveal delay={0.12}>
-            <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-white/60 lg:mx-0">
+            <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-cream lg:mx-0">
               See how the AI Operating Layer connects your EHR, diagnostics,
               monitoring devices and genetic data — in weeks, not months. ELLIE
               will show you the way.
@@ -98,8 +98,8 @@ export function Cta() {
           <Reveal delay={0.32} blur={false}>
             <ul className="mt-12 flex flex-wrap items-center justify-center gap-x-9 gap-y-4 lg:justify-start">
               {TRUST_BADGES.map(({ label, Icon }) => (
-                <li key={label} className="flex items-center gap-2 text-[14px] text-white/45">
-                  <Icon className="size-4 text-forest-300" aria-hidden="true" />
+                <li key={label} className="flex items-center gap-2 text-[14px] text-cream">
+                  <Icon className="size-4 text-cream" aria-hidden="true" />
                   {label}
                 </li>
               ))}

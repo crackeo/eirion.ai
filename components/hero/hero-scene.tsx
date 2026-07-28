@@ -99,7 +99,7 @@ function Constellation() {
           />
         </bufferGeometry>
         <pointsMaterial
-          color="#7ddb9d"
+          color="#eef8e6"
           size={0.055}
           sizeAttenuation
           transparent
@@ -117,7 +117,7 @@ function Constellation() {
           />
         </bufferGeometry>
         <lineBasicMaterial
-          color="#16a34a"
+          color="#0d3d20"
           transparent
           opacity={0.28}
           depthWrite={false}
@@ -127,11 +127,11 @@ function Constellation() {
       {/* ELLIE core */}
       <mesh ref={core}>
         <icosahedronGeometry args={[0.62, 2]} />
-        <meshBasicMaterial color="#d2a92b" wireframe transparent opacity={0.85} />
+        <meshBasicMaterial color="#fbf9f1" wireframe transparent opacity={0.85} />
       </mesh>
       <mesh ref={halo}>
         <sphereGeometry args={[0.62, 32, 32]} />
-        <meshBasicMaterial color="#b8911f" transparent opacity={0.16} depthWrite={false} />
+        <meshBasicMaterial color="#d6f5df" transparent opacity={0.16} depthWrite={false} />
       </mesh>
 
       {/* Orbiting golden satellites */}
@@ -171,7 +171,7 @@ function Satellites() {
       {satellites.map((s) => (
         <mesh key={s.offset}>
           <sphereGeometry args={[0.045, 12, 12]} />
-          <meshBasicMaterial color="#e09a06" />
+          <meshBasicMaterial color="#0a2e18" />
         </mesh>
       ))}
     </group>

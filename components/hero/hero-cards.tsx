@@ -111,7 +111,7 @@ function AdherenceCard() {
       <p className="mt-[1.3cqw] text-[2.2cqw] text-slate-500">Medication Adherence</p>
       <p className="font-stats mt-[0.5cqw] text-[4cqw] font-semibold text-slate-800">100%</p>
       <div className="mt-[1cqw] h-[1.3cqw] overflow-hidden rounded-full bg-forest-100">
-        <div className="h-full w-full rounded-full bg-gradient-to-r from-forest-500 to-gold-500" />
+        <div className="h-full w-full rounded-full bg-gradient-to-r from-forest-500 to-forest-400" />
       </div>
     </div>
   );

@@ -18,11 +18,11 @@ interface ButtonProps {
 }
 
 const variantStyles: Record<Variant, string> = {
-  gold: "bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 bg-[length:200%_auto] text-forest-950 shadow-[0_8px_30px_-6px_rgba(184,145,31,0.55)] hover:bg-right",
+  gold: "bg-gradient-to-r bg-cream text-forest-800 shadow-[0_8px_30px_-6px_rgba(10,46,24,0.35)] hover:bg-right",
   forest:
     "bg-forest-700 text-white shadow-[0_8px_30px_-8px_rgba(16,117,58,0.6)] hover:bg-forest-600",
   "ghost-dark":
-    "border border-white/20 text-white backdrop-blur-sm hover:border-gold-500/60 hover:bg-white/5",
+    "border border-white/20 text-white backdrop-blur-sm hover:border-cream/60 hover:bg-white/5",
   "ghost-light":
     "border border-forest-800/20 text-forest-900 hover:border-forest-600/50 hover:bg-forest-50",
 };

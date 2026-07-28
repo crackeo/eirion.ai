@@ -18,13 +18,13 @@ export function Naturalist() {
         {/* Einstein quote */}
         <Reveal>
           <figure className="mx-auto mb-24 max-w-3xl text-center">
-            <span aria-hidden="true" className="font-heading text-8xl leading-none text-gold-500/25">
+            <span aria-hidden="true" className="font-heading text-8xl leading-none text-cream/25">
               “
             </span>
-            <blockquote className="font-heading -mt-8 text-2xl leading-snug font-medium text-balance text-white/90 md:text-[32px]">
+            <blockquote className="font-heading -mt-8 text-2xl leading-snug font-medium text-balance text-cream md:text-[32px]">
               {NATURALIST.quote}
             </blockquote>
-            <figcaption className="font-labels mt-6 text-[14px] tracking-[0.2em] text-gold-500 uppercase">
+            <figcaption className="font-labels mt-6 text-[14px] tracking-[0.2em] text-cream uppercase">
               — {NATURALIST.quoteAuthor}
             </figcaption>
           </figure>
@@ -42,12 +42,12 @@ export function Naturalist() {
             const Icon = principleIcons[i];
             return (
               <StaggerItem key={principle.title}>
-                <div className="group glass-dark relative h-full overflow-hidden rounded-3xl p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-gold-500/30">
+                <div className="group glass-dark relative h-full overflow-hidden rounded-3xl p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-cream/35">
                   <div
                     aria-hidden="true"
-                    className="absolute -top-16 -right-16 size-40 rounded-full bg-gold-500/8 blur-3xl transition-opacity duration-500 group-hover:opacity-100 md:opacity-0"
+                    className="absolute -top-16 -right-16 size-40 rounded-full bg-forest-300/10 blur-3xl transition-opacity duration-500 group-hover:opacity-100 md:opacity-0"
                   />
-                  <span className="grid size-13 place-items-center rounded-2xl border border-gold-500/25 bg-gold-500/10 text-gold-500 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-3">
+                  <span className="grid size-13 place-items-center rounded-2xl border border-cream/25 bg-cream/10 text-forest-200 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-3">
                     <Icon className="size-6" aria-hidden="true" />
                   </span>
                   <h3 className="font-heading mt-6 text-[22px] font-semibold tracking-tight text-white">
@@ -59,15 +59,15 @@ export function Naturalist() {
                       <p className="font-labels text-[11.5px] font-semibold tracking-[0.18em] text-forest-300 uppercase">
                         Naturalist Principle
                       </p>
-                      <p className="mt-1.5 text-[15px] leading-relaxed text-white/65">
+                      <p className="mt-1.5 text-[15px] leading-relaxed text-cream">
                         {principle.principle}
                       </p>
                     </div>
                     <div className="border-t border-white/10 pt-5">
-                      <p className="font-labels text-[11.5px] font-semibold tracking-[0.18em] text-gold-500 uppercase">
+                      <p className="font-labels text-[11.5px] font-semibold tracking-[0.18em] text-cream uppercase">
                         How ELLIE Applies This
                       </p>
-                      <p className="mt-1.5 text-[15px] leading-relaxed text-white/65">
+                      <p className="mt-1.5 text-[15px] leading-relaxed text-cream">
                         {principle.application}
                       </p>
                     </div>

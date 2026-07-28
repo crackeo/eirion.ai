@@ -24,7 +24,7 @@ export function Intelligence() {
                     <span className="grid size-12 place-items-center rounded-2xl bg-forest-100 text-forest-700 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                       <Icon className="size-5" aria-hidden="true" />
                     </span>
-                    <span className="font-stats text-5xl font-semibold text-forest-950/8 transition-colors duration-500 group-hover:text-gold-600/25">
+                    <span className="font-stats text-5xl font-semibold text-forest-950/8 transition-colors duration-500 group-hover:text-forest-500/25">
                       {feature.number}
                     </span>
                   </div>
@@ -42,7 +42,7 @@ export function Intelligence() {
 
         {/* Stats band */}
         <Reveal delay={0.1}>
-          <div className="relative mt-20 overflow-hidden rounded-[32px] bg-forest-950 px-8 py-14 md:px-14">
+          <div className="relative mt-20 overflow-hidden rounded-[32px] bg-forest-800 px-8 py-14 md:px-14">
             <div className="bg-grid-dark absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]" aria-hidden="true" />
             <div
               aria-hidden="true"
@@ -54,7 +54,7 @@ export function Intelligence() {
                   <p className="font-stats text-6xl font-semibold text-white md:text-7xl">
                     <Counter value={stat.value} suffix={stat.suffix} />
                   </p>
-                  <p className="font-labels mt-3 text-[14px] font-medium tracking-[0.12em] text-gold-500 uppercase">
+                  <p className="font-labels mt-3 text-[14px] font-medium tracking-[0.12em] text-cream uppercase">
                     {stat.label}
                   </p>
                 </div>

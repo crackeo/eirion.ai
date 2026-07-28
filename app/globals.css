@@ -2,17 +2,18 @@
 
 @theme {
   /* ── Naturalist palette ─────────────────────────────── */
-  --color-forest-950: #0f3a22;
-  --color-forest-900: #124529;
-  --color-forest-800: #135e34;
+  --color-band: #158040; /* vivid green hero/CTA band */
+  --color-forest-950: #0a2e18;
+  --color-forest-900: #0d3d20;
+  --color-forest-800: #11562d;
   --color-forest-700: #14742f;
   --color-forest-600: #15803d;
-  --color-forest-500: #16a34a;
-  --color-forest-400: #3cc46b;
+  --color-forest-500: #1eb257;
+  --color-forest-400: #4bcb7c;
   --color-forest-300: #7ddb9d;
-  --color-forest-200: #b0ebc4;
-  --color-forest-100: #d9f5e1;
-  --color-forest-50: #e7f8ea;
+  --color-forest-200: #a8ecbc;
+  --color-forest-100: #d6f5df;
+  --color-forest-50: #eef8e6;
 
   --color-gold-700: #84640e; /* text-grade gold, AA on light */
   --color-gold-600: #b8911f;
@@ -20,8 +21,8 @@
   --color-gold-400: #e6c95f;
   --color-amber-brand: #e09a06;
 
-  --color-cream: #f5fbf6;
-  --color-ink: #0f2a19;
+  --color-cream: #fbf9f1;
+  --color-ink: #0a2e18;
 
   /* ── Typography ─────────────────────────────────────── */
   --font-heading: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
@@ -108,10 +109,11 @@ body {
 }
 
 @utility glass-dark {
-  background: rgba(255, 255, 255, 0.05);
+  /* dark-tinted over the vivid band so tinted text keeps its contrast */
+  background: rgba(10, 46, 24, 0.45);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(251, 249, 241, 0.16);
 }
 
 @utility glass-light {
@@ -122,7 +124,7 @@ body {
 }
 
 @utility text-gradient-gold {
-  background: linear-gradient(100deg, #e6c95f 0%, #d2a92b 45%, #e6c95f 100%);
+  background: linear-gradient(100deg, #eef8e6 0%, #cdf5da 45%, #eef8e6 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -130,7 +132,7 @@ body {
 }
 
 @utility text-gradient-forest {
-  background: linear-gradient(100deg, #14742f, #16a34a 55%, #b8911f);
+  background: linear-gradient(100deg, #15803d, #1eb257 55%, #14742f);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -145,8 +147,8 @@ body {
 }
 .bg-grid-light {
   background-image:
-    linear-gradient(rgba(19,94,52, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(19,94,52, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(10,46,24,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,46,24,0.06) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 
@@ -196,7 +198,7 @@ body {
 
 /* Focus visibility */
 :focus-visible {
-  outline: 2px solid var(--color-gold-600);
+  outline: 2px solid var(--color-forest-600);
   outline-offset: 3px;
   border-radius: 4px;
 }

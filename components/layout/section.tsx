@@ -11,7 +11,7 @@ interface SectionProps {
 }
 
 const tones = {
-  dark: "bg-forest-950 text-white",
+  dark: "bg-forest-800 text-white",
   light: "bg-cream text-ink",
   tint: "bg-forest-50 text-ink",
 };
@@ -60,7 +60,7 @@ export function SectionHeading({
           <p
             className={cn(
               "font-labels mb-5 text-[13px] font-semibold tracking-[0.22em] uppercase",
-              dark ? "text-gold-500" : "text-forest-600"
+              dark ? "text-cream" : "text-forest-600"
             )}
           >
             {eyebrow}
@@ -86,7 +86,7 @@ export function SectionHeading({
           <p
             className={cn(
               "mt-6 text-lg leading-relaxed",
-              dark ? "text-white/65" : "text-ink/65",
+              dark ? "text-cream" : "text-ink/65",
               align === "center" && "mx-auto max-w-2xl"
             )}
           >

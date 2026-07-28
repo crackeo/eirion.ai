@@ -24,7 +24,7 @@ const EcosystemScene = dynamic(
     loading: () => (
       <div
         aria-hidden="true"
-        className="absolute inset-[15%] rounded-full bg-gold-500/8 blur-3xl"
+        className="absolute inset-[15%] rounded-full bg-forest-300/10 blur-3xl"
       />
     ),
   }
@@ -110,7 +110,7 @@ export function AgentEcosystem() {
         {/* 3D solar system (desktop / tablet) */}
         <div ref={ref} className="relative mx-auto hidden aspect-[4/3] w-full max-w-[1150px] md:block">
           {near && <EcosystemScene />}
-          <p className="font-labels pointer-events-none absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-2 text-[12px] tracking-[0.18em] text-white/40 uppercase">
+          <p className="font-labels pointer-events-none absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-2 text-[12px] tracking-[0.18em] text-cream uppercase">
             <MousePointer2 className="size-3.5" aria-hidden="true" />
             Drag to explore the ecosystem
           </p>
@@ -120,7 +120,7 @@ export function AgentEcosystem() {
         <Stagger className="mx-auto mt-10 grid max-w-4xl gap-8 sm:grid-cols-2 md:mt-14" staggerDelay={0.12}>
           {[
             { title: "Internal Agents", agents: INTERNAL, accent: "text-forest-300", ring: "border-forest-400/25" },
-            { title: "External Agents", agents: EXTERNAL, accent: "text-gold-500", ring: "border-gold-500/25" },
+            { title: "External Agents", agents: EXTERNAL, accent: "text-cream", ring: "border-cream/25" },
           ].map((group) => (
             <StaggerItem key={group.title}>
               <div className={`glass-dark h-full rounded-3xl p-7 ${group.ring}`}>
@@ -134,7 +134,7 @@ export function AgentEcosystem() {
                       className="flex items-center gap-2.5 rounded-xl border border-white/8 bg-white/[0.03] px-3.5 py-3 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.06]"
                     >
                       <Icon className={`size-4 shrink-0 ${group.accent}`} aria-hidden="true" />
-                      <span className="text-[13.5px] font-medium text-white/80">{label}</span>
+                      <span className="text-[13.5px] font-medium text-cream">{label}</span>
                     </li>
                   ))}
                 </ul>
@@ -144,8 +144,8 @@ export function AgentEcosystem() {
         </Stagger>
 
         <Reveal delay={0.2}>
-          <p className="font-labels mt-12 text-center text-[13px] tracking-[0.16em] text-white/60 uppercase">
-            Every agent starts with <span className="text-gold-500">ELLIE</span> — orchestrated through the Model Context Protocol
+          <p className="font-labels mt-12 text-center text-[13px] tracking-[0.16em] text-cream uppercase">
+            Every agent starts with <span className="text-cream">ELLIE</span> — orchestrated through the Model Context Protocol
           </p>
         </Reveal>
       </div>

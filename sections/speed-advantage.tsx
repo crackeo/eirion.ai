@@ -37,12 +37,12 @@ export function SpeedAdvantage() {
             <div className="relative h-full overflow-hidden rounded-3xl bg-forest-950 p-9 shadow-[0_30px_80px_-30px_rgba(15,58,34,0.55)]">
               <div
                 aria-hidden="true"
-                className="animate-pulse-soft absolute -top-20 -right-20 size-56 rounded-full bg-gold-500/15 blur-3xl"
+                className="animate-pulse-soft absolute -top-20 -right-20 size-56 rounded-full bg-forest-200/15 blur-3xl"
               />
-              <span className="relative grid size-12 place-items-center rounded-2xl bg-gold-500/15 text-gold-500">
+              <span className="relative grid size-12 place-items-center rounded-2xl bg-cream/15 text-forest-200">
                 <Zap className="size-6" aria-hidden="true" />
               </span>
-              <p className="font-labels relative mt-6 text-[13px] font-semibold tracking-[0.18em] text-gold-500 uppercase">
+              <p className="font-labels relative mt-6 text-[13px] font-semibold tracking-[0.18em] text-cream uppercase">
                 {SPEED.eleanor.label}
               </p>
               <p className="text-gradient-gold animate-shimmer font-stats relative mt-2 text-4xl font-semibold md:text-5xl">
@@ -50,7 +50,7 @@ export function SpeedAdvantage() {
               </p>
               <ul className="relative mt-6 space-y-3">
                 {SPEED.eleanor.points.map((point) => (
-                  <li key={point} className="flex items-center gap-2.5 text-[15px] text-white/80">
+                  <li key={point} className="flex items-center gap-2.5 text-[15px] text-cream">
                     <Check className="size-4 shrink-0 text-forest-300" aria-hidden="true" />
                     {point}
                   </li>
