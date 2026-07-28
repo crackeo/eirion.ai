@@ -63,7 +63,7 @@ export default function ContactPage() {
                     <Mail className="size-5" aria-hidden="true" />
                   </span>
                   <span className="min-w-0">
-                    <span className="font-labels block text-[12px] font-semibold tracking-[0.14em] text-ink/45 uppercase">
+                    <span className="font-labels block text-[12px] font-semibold tracking-[0.14em] text-ink/70 uppercase">
                       Email
                     </span>
                     <span className="mt-0.5 block truncate text-[15px] font-medium text-forest-700 group-hover:text-forest-600">
@@ -82,7 +82,7 @@ export default function ContactPage() {
                     <MessageCircle className="size-5" aria-hidden="true" />
                   </span>
                   <span>
-                    <span className="font-labels block text-[12px] font-semibold tracking-[0.14em] text-ink/45 uppercase">
+                    <span className="font-labels block text-[12px] font-semibold tracking-[0.14em] text-ink/70 uppercase">
                       WhatsApp
                     </span>
                     <span className="mt-0.5 block text-[15px] font-medium text-forest-700 group-hover:text-forest-600">

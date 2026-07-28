@@ -157,7 +157,7 @@ export function ContactForm() {
         </div>
       </div>
 
-      <p className="mt-6 text-[13.5px] leading-relaxed text-ink/55">
+      <p className="mt-6 text-[13.5px] leading-relaxed text-ink/70">
         Choose how you&apos;d like to send this. Both options open with your message
         already filled in — nothing is stored on this site.
       </p>
