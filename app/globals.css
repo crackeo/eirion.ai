@@ -5,14 +5,14 @@
   --color-forest-950: #0f3a22;
   --color-forest-900: #124529;
   --color-forest-800: #135e34;
-  --color-forest-700: #10753a;
-  --color-forest-600: #117e3e;
+  --color-forest-700: #14742f;
+  --color-forest-600: #15803d;
   --color-forest-500: #16a34a;
   --color-forest-400: #3cc46b;
   --color-forest-300: #7ddb9d;
   --color-forest-200: #b0ebc4;
   --color-forest-100: #d9f5e1;
-  --color-forest-50: #e3f6e7;
+  --color-forest-50: #e7f8ea;
 
   --color-gold-700: #84640e; /* text-grade gold, AA on light */
   --color-gold-600: #b8911f;
@@ -130,7 +130,7 @@ body {
 }
 
 @utility text-gradient-forest {
-  background: linear-gradient(100deg, #10753a, #16a34a 55%, #b8911f);
+  background: linear-gradient(100deg, #14742f, #16a34a 55%, #b8911f);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

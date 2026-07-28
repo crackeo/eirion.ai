@@ -19,7 +19,7 @@ function ShieldBadge({ name }: { name: string }) {
         <defs>
           <linearGradient id={`shield-${name.replace(/\s/g, "")}`} x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="#16a34a" />
-            <stop offset="55%" stopColor="#10753a" />
+            <stop offset="55%" stopColor="#14742f" />
             <stop offset="100%" stopColor="#124529" />
           </linearGradient>
         </defs>
