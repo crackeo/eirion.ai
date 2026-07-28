@@ -44,10 +44,10 @@ export function Navbar() {
         {/* Logo */}
         <a href="#" className="group flex items-center" aria-label="eirion.ai home">
           <m.img
-            src="/logo-dark.svg"
+            src="/logo-mark.webp"
             alt="eirion.ai"
-            width={1024}
-            height={358}
+            width={728}
+            height={200}
             className="h-9 w-auto"
             whileHover={reduceMotion ? undefined : { scale: 1.04 }}
             transition={{ type: "spring", stiffness: 300, damping: 15 }}

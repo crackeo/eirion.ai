@@ -60,10 +60,10 @@ export function Footer() {
               <a href="#" className="inline-flex items-center" aria-label="eirion.ai home">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/logo-dark.svg"
+                  src="/logo-mark.webp"
                   alt="eirion.ai"
-                  width={1024}
-                  height={358}
+                  width={728}
+                  height={200}
                   className="h-10 w-auto"
                 />
               </a>
