@@ -42,3 +42,6 @@ next-env.d.ts
 
 # local claude settings (machine-specific permissions)
 .claude/settings.local.json
+
+# transient worktree used by scripts/deploy-hostinger.sh
+.deploy-worktree
