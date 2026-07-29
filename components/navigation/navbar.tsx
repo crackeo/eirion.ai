@@ -44,11 +44,14 @@ export function Navbar() {
       >
         {/* Logo */}
         <Link href="/" className="group flex items-center" aria-label="eirion.ai home">
+          {/* 448w covers h-9 (36px tall) up to DPR 3. The 728w original was
+              45 KB for a 36px-tall render, and Next preloads it as an image —
+              so it was competing with the hero for mobile bandwidth. */}
           <m.img
-            src="/logo-mark.webp"
+            src="/logo-mark-448w.webp"
             alt="eirion.ai"
-            width={728}
-            height={200}
+            width={448}
+            height={123}
             className="h-9 w-auto"
             whileHover={reduceMotion ? undefined : { scale: 1.04 }}
             transition={{ type: "spring", stiffness: 300, damping: 15 }}

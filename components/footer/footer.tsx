@@ -61,10 +61,11 @@ export function Footer() {
               <Link href="/" className="inline-flex items-center" aria-label="eirion.ai home">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/logo-mark.webp"
+                  src="/logo-mark-448w.webp"
                   alt="eirion.ai"
-                  width={728}
-                  height={200}
+                  width={448}
+                  height={123}
+                  loading="lazy"
                   className="h-10 w-auto"
                 />
               </Link>

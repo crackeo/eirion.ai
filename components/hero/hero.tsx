@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useRef } from "react";
 import { m, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import { HERO } from "@/constants/content";
@@ -137,9 +136,23 @@ export function Hero() {
             aria-hidden="true"
             className="absolute inset-x-[12%] top-[8%] bottom-[4%] rounded-full bg-forest-400/12 blur-[70px]"
           />
-          {/* NOTE: width/height (x-descriptor srcset) instead of fill+sizes —
-              responsive w-descriptor selection stalls in some Chrome contexts,
-              and containment must not sit on the <img>'s own parent. */}
+          {/* NOTE: a plain <img>, not next/image. Static export forces
+              `images.unoptimized`, and that makes next/image emit no srcset at
+              all — so every phone downloaded the full 970w / 224 KB file while
+              the `sizes` prop sat inert. The variants are pre-generated into
+              /public by scripts/gen-images.py so srcset actually ships.
+
+              Deliberately no hand-written <link rel="preload"> alongside it: an
+              imageSizes string that disagreed with `sizes` below would make the
+              browser fetch two variants.
+
+              And deliberately NO fetchPriority="high" here: the LCP element is
+              the <h1> text, which is gated on the stylesheet. Measured on the
+              same local setup, prioritising this image cost 3 mobile points
+              (87 -> 84) because it stole bandwidth from that CSS.
+
+              width/height stay at the 970x1024 intrinsic ratio so the box is
+              reserved identically and CLS stays 0. */}
           {/* Character — lags slightly behind the ring on scroll */}
           <m.div style={girlStyle}>
             <div className="anim-scale relative" style={{ animationDelay: "0.35s" }}>
@@ -148,13 +161,15 @@ export function Hero() {
                 aria-hidden="true"
                 className="animate-pulse-soft absolute bottom-[2%] left-1/2 h-[16%] w-[46%] -translate-x-1/2 rounded-[50%] bg-forest-400/25 blur-[42px]"
               />
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/ellie-hero-big.webp"
+                srcSet="/ellie-hero-big-420w.webp 420w, /ellie-hero-big-560w.webp 560w, /ellie-hero-big-720w.webp 720w, /ellie-hero-big.webp 970w"
+                sizes="(max-width: 640px) 88vw, (max-width: 1024px) 540px, 42vw"
                 alt="ELLIE, the interactive AI health coach, holding a yoga mat and water bottle, surrounded by live patient monitoring cards"
                 width={970}
                 height={1024}
-                priority
-                sizes="(max-width: 640px) 88vw, (max-width: 1024px) 540px, 42vw"
+                decoding="async"
                 className="h-auto w-full [mask-image:linear-gradient(to_bottom,black_72%,transparent_97%)]"
               />
             </div>
