@@ -1,0 +1,170 @@
+/* EIRION brand tokens — generated, do not edit by hand. */
+:root {
+  /* core brand */
+  --eirion-color-forest-green: #033A12;
+  --eirion-color-helix-green: #00722A;
+  --eirion-color-gold: #E3AC18;
+  --eirion-color-gold-light: #E5C762;
+  --eirion-color-ink: #0E1A12;
+  --eirion-color-paper: #FFFFFF;
+
+  /* palette ramps */
+  --eirion-forest-50: #F0F3F1;
+  --eirion-forest-100: #DEE5E0;
+  --eirion-forest-200: #BDCCC1;
+  --eirion-forest-300: #90A897;
+  --eirion-forest-400: #597D63;
+  --eirion-forest-500: #2B5A38;
+  --eirion-forest-600: #033A12;
+  --eirion-forest-700: #02300F;
+  --eirion-forest-800: #02250C;
+  --eirion-forest-900: #011A08;
+  --eirion-forest-950: #011005;
+  --eirion-helix-50: #F0F7F2;
+  --eirion-helix-100: #DEEDE3;
+  --eirion-helix-200: #BDDAC8;
+  --eirion-helix-300: #8FC1A1;
+  --eirion-helix-400: #57A272;
+  --eirion-helix-500: #29894C;
+  --eirion-helix-600: #00722A;
+  --eirion-helix-700: #005D22;
+  --eirion-helix-800: #00491B;
+  --eirion-helix-900: #003313;
+  --eirion-helix-950: #00200C;
+  --eirion-gold-50: #FDFAF1;
+  --eirion-gold-100: #FBF4E1;
+  --eirion-gold-200: #F8E9C3;
+  --eirion-gold-300: #F3DA99;
+  --eirion-gold-400: #EDC867;
+  --eirion-gold-500: #E7B93D;
+  --eirion-gold-600: #E3AC18;
+  --eirion-gold-700: #BA8D14;
+  --eirion-gold-800: #916E0F;
+  --eirion-gold-900: #664D0B;
+  --eirion-gold-950: #403007;
+  --eirion-slate-50: #F5F6F5;
+  --eirion-slate-100: #EAECEA;
+  --eirion-slate-200: #D4D9D6;
+  --eirion-slate-300: #B7BEB9;
+  --eirion-slate-400: #939D96;
+  --eirion-slate-500: #758379;
+  --eirion-slate-600: #5B6B60;
+  --eirion-slate-700: #4B584F;
+  --eirion-slate-800: #3A443D;
+  --eirion-slate-900: #29302B;
+  --eirion-slate-950: #191E1B;
+
+  /* semantic (light) */
+  --eirion-ui-bg: #FFFFFF;
+  --eirion-ui-bg-subtle: #F0F3F1;
+  --eirion-ui-surface: #FFFFFF;
+  --eirion-ui-surface-raised: #F5F6F5;
+  --eirion-ui-border: #D4D9D6;
+  --eirion-ui-border-strong: #B7BEB9;
+  --eirion-ui-text: #0E1A12;
+  --eirion-ui-text-muted: #4B584F;
+  --eirion-ui-text-inverse: #FFFFFF;
+  --eirion-ui-brand: #033A12;
+  --eirion-ui-brand-hover: #02300F;
+  --eirion-ui-brand-subtle: #DEE5E0;
+  --eirion-ui-accent: #E3AC18;
+  --eirion-ui-accent-hover: #BA8D14;
+  --eirion-ui-accent-subtle: #FBF4E1;
+  --eirion-ui-focus: #00722A;
+  --eirion-ui-success: #1E7B45;
+  --eirion-ui-warning: #B4780C;
+  --eirion-ui-danger: #A3231C;
+  --eirion-ui-info: #0F6A78;
+
+  /* typography */
+  --eirion-font-heading: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --eirion-font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --eirion-font-mono: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+  --eirion-radius-sm: 4px;
+  --eirion-radius-md: 8px;
+  --eirion-radius-lg: 12px;
+  --eirion-radius-xl: 20px;
+  --eirion-radius-pill: 999px;
+  --eirion-space-1: 4px;
+  --eirion-space-2: 8px;
+  --eirion-space-3: 12px;
+  --eirion-space-4: 16px;
+  --eirion-space-5: 24px;
+  --eirion-space-6: 32px;
+  --eirion-space-7: 48px;
+  --eirion-space-8: 64px;
+  --eirion-shadow-sm: 0 1px 2px rgba(3,58,18,.08);
+  --eirion-shadow-md: 0 4px 12px rgba(3,58,18,.10);
+  --eirion-shadow-lg: 0 12px 32px rgba(3,58,18,.14);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --eirion-ui-bg: #07130C;
+    --eirion-ui-bg-subtle: #0C1D13;
+    --eirion-ui-surface: #0C1D13;
+    --eirion-ui-surface-raised: #12291B;
+    --eirion-ui-border: #1E3D28;
+    --eirion-ui-border-strong: #2C5638;
+    --eirion-ui-text: #E8F1EA;
+    --eirion-ui-text-muted: #A6BCAE;
+    --eirion-ui-text-inverse: #0E1A12;
+    --eirion-ui-brand: #4FB878;
+    --eirion-ui-brand-hover: #6FCB8F;
+    --eirion-ui-brand-subtle: #12291B;
+    --eirion-ui-accent: #E3AC18;
+    --eirion-ui-accent-hover: #E5C762;
+    --eirion-ui-accent-subtle: #2A2311;
+    --eirion-ui-focus: #6FCB8F;
+    --eirion-ui-success: #4FB878;
+    --eirion-ui-warning: #E0B341;
+    --eirion-ui-danger: #E8776F;
+    --eirion-ui-info: #4FC3D4;
+  }
+}
+
+:root[data-theme="dark"] {
+  --eirion-ui-bg: #07130C;
+  --eirion-ui-bg-subtle: #0C1D13;
+  --eirion-ui-surface: #0C1D13;
+  --eirion-ui-surface-raised: #12291B;
+  --eirion-ui-border: #1E3D28;
+  --eirion-ui-border-strong: #2C5638;
+  --eirion-ui-text: #E8F1EA;
+  --eirion-ui-text-muted: #A6BCAE;
+  --eirion-ui-text-inverse: #0E1A12;
+  --eirion-ui-brand: #4FB878;
+  --eirion-ui-brand-hover: #6FCB8F;
+  --eirion-ui-brand-subtle: #12291B;
+  --eirion-ui-accent: #E3AC18;
+  --eirion-ui-accent-hover: #E5C762;
+  --eirion-ui-accent-subtle: #2A2311;
+  --eirion-ui-focus: #6FCB8F;
+  --eirion-ui-success: #4FB878;
+  --eirion-ui-warning: #E0B341;
+  --eirion-ui-danger: #E8776F;
+  --eirion-ui-info: #4FC3D4;
+}
+
+:root[data-theme="light"] {
+  --eirion-ui-bg: #FFFFFF;
+  --eirion-ui-bg-subtle: #F0F3F1;
+  --eirion-ui-surface: #FFFFFF;
+  --eirion-ui-surface-raised: #F5F6F5;
+  --eirion-ui-border: #D4D9D6;
+  --eirion-ui-border-strong: #B7BEB9;
+  --eirion-ui-text: #0E1A12;
+  --eirion-ui-text-muted: #4B584F;
+  --eirion-ui-text-inverse: #FFFFFF;
+  --eirion-ui-brand: #033A12;
+  --eirion-ui-brand-hover: #02300F;
+  --eirion-ui-brand-subtle: #DEE5E0;
+  --eirion-ui-accent: #E3AC18;
+  --eirion-ui-accent-hover: #BA8D14;
+  --eirion-ui-accent-subtle: #FBF4E1;
+  --eirion-ui-focus: #00722A;
+  --eirion-ui-success: #1E7B45;
+  --eirion-ui-warning: #B4780C;
+  --eirion-ui-danger: #A3231C;
+  --eirion-ui-info: #0F6A78;
+}

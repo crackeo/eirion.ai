@@ -1,0 +1,178 @@
+{
+  "$schema": "https://design-tokens.org/schema.json",
+  "name": "EIRION Brand Tokens",
+  "version": "1.0.0",
+  "source": "Sampled from EIRION-logo-transparent.png",
+  "color": {
+    "core": {
+      "forest-green": "#033A12",
+      "helix-green": "#00722A",
+      "gold": "#E3AC18",
+      "gold-light": "#E5C762",
+      "ink": "#0E1A12",
+      "paper": "#FFFFFF"
+    },
+    "palette": {
+      "forest": {
+        "50": "#F0F3F1",
+        "100": "#DEE5E0",
+        "200": "#BDCCC1",
+        "300": "#90A897",
+        "400": "#597D63",
+        "500": "#2B5A38",
+        "600": "#033A12",
+        "700": "#02300F",
+        "800": "#02250C",
+        "900": "#011A08",
+        "950": "#011005"
+      },
+      "helix": {
+        "50": "#F0F7F2",
+        "100": "#DEEDE3",
+        "200": "#BDDAC8",
+        "300": "#8FC1A1",
+        "400": "#57A272",
+        "500": "#29894C",
+        "600": "#00722A",
+        "700": "#005D22",
+        "800": "#00491B",
+        "900": "#003313",
+        "950": "#00200C"
+      },
+      "gold": {
+        "50": "#FDFAF1",
+        "100": "#FBF4E1",
+        "200": "#F8E9C3",
+        "300": "#F3DA99",
+        "400": "#EDC867",
+        "500": "#E7B93D",
+        "600": "#E3AC18",
+        "700": "#BA8D14",
+        "800": "#916E0F",
+        "900": "#664D0B",
+        "950": "#403007"
+      },
+      "slate": {
+        "50": "#F5F6F5",
+        "100": "#EAECEA",
+        "200": "#D4D9D6",
+        "300": "#B7BEB9",
+        "400": "#939D96",
+        "500": "#758379",
+        "600": "#5B6B60",
+        "700": "#4B584F",
+        "800": "#3A443D",
+        "900": "#29302B",
+        "950": "#191E1B"
+      }
+    },
+    "semantic": {
+      "light": {
+        "bg": "#FFFFFF",
+        "bg-subtle": "#F0F3F1",
+        "surface": "#FFFFFF",
+        "surface-raised": "#F5F6F5",
+        "border": "#D4D9D6",
+        "border-strong": "#B7BEB9",
+        "text": "#0E1A12",
+        "text-muted": "#4B584F",
+        "text-inverse": "#FFFFFF",
+        "brand": "#033A12",
+        "brand-hover": "#02300F",
+        "brand-subtle": "#DEE5E0",
+        "accent": "#E3AC18",
+        "accent-hover": "#BA8D14",
+        "accent-subtle": "#FBF4E1",
+        "focus": "#00722A",
+        "success": "#1E7B45",
+        "warning": "#B4780C",
+        "danger": "#A3231C",
+        "info": "#0F6A78"
+      },
+      "dark": {
+        "bg": "#07130C",
+        "bg-subtle": "#0C1D13",
+        "surface": "#0C1D13",
+        "surface-raised": "#12291B",
+        "border": "#1E3D28",
+        "border-strong": "#2C5638",
+        "text": "#E8F1EA",
+        "text-muted": "#A6BCAE",
+        "text-inverse": "#0E1A12",
+        "brand": "#4FB878",
+        "brand-hover": "#6FCB8F",
+        "brand-subtle": "#12291B",
+        "accent": "#E3AC18",
+        "accent-hover": "#E5C762",
+        "accent-subtle": "#2A2311",
+        "focus": "#6FCB8F",
+        "success": "#4FB878",
+        "warning": "#E0B341",
+        "danger": "#E8776F",
+        "info": "#4FC3D4"
+      }
+    }
+  },
+  "typography": {
+    "wordmark": {
+      "family": "Times New Roman",
+      "weight": "700",
+      "tracking": "0.018em",
+      "case": "uppercase"
+    },
+    "heading": {
+      "family": "'Source Serif 4', Georgia, 'Times New Roman', serif",
+      "weight": "600"
+    },
+    "body": {
+      "family": "'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif",
+      "weight": "400",
+      "size": "16px",
+      "lineHeight": "1.55"
+    },
+    "mono": {
+      "family": "'JetBrains Mono', 'Cascadia Code', Consolas, monospace"
+    },
+    "scale": {
+      "xs": "12px",
+      "sm": "14px",
+      "base": "16px",
+      "lg": "18px",
+      "xl": "22px",
+      "2xl": "28px",
+      "3xl": "36px",
+      "4xl": "48px",
+      "5xl": "64px"
+    }
+  },
+  "radius": {
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "xl": "20px",
+    "pill": "999px"
+  },
+  "space": {
+    "1": "4px",
+    "2": "8px",
+    "3": "12px",
+    "4": "16px",
+    "5": "24px",
+    "6": "32px",
+    "7": "48px",
+    "8": "64px"
+  },
+  "shadow": {
+    "sm": "0 1px 2px rgba(3,58,18,.08)",
+    "md": "0 4px 12px rgba(3,58,18,.10)",
+    "lg": "0 12px 32px rgba(3,58,18,.14)"
+  },
+  "contrast": {
+    "forest-on-white": 12.98,
+    "helix-on-white": 6.1,
+    "gold-on-white": 2.06,
+    "gold-on-forest": 6.29,
+    "white-on-forest": 12.98,
+    "ink-on-white": 17.87
+  }
+}
