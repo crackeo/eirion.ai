@@ -83,7 +83,7 @@ export function Flow() {
               </p>
 
               {/* Supporting line */}
-              <p className="mt-6 text-[clamp(20px,2.6vw,34px)] font-medium text-forest-700/80">
+              <p className="mt-6 text-[clamp(20px,2.6vw,34px)] font-medium text-forest-700">
                 {step.description}
               </p>
             </m.div>
