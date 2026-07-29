@@ -10,6 +10,10 @@ export const NAV_LINKS = [
 
 /** Where enquiries go. Static hosting has no backend, so the contact form
  *  composes a message and hands it to one of these channels directly. */
+/** The ELEANOR web app lives on its own subdomain, so this is an external
+ *  navigation — a plain <a>, not next/link. */
+export const APP_LOGIN_URL = "https://app.eirion.ai/auth/login";
+
 export const CONTACT = {
   email: "info@eirionai.com",
   whatsappDisplay: "+975 12345678",

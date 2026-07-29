@@ -10,7 +10,7 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { NAV_LINKS } from "@/constants/content";
+import { NAV_LINKS, APP_LOGIN_URL } from "@/constants/content";
 import { cn } from "@/lib/utils";
 
 /** Floating glass navbar: hides on scroll down, reveals on scroll up. */
@@ -72,7 +72,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#"
+            href={APP_LOGIN_URL}
             className="font-labels hidden text-[14px] font-medium text-cream transition-colors hover:text-white md:block"
           >
             Login
@@ -127,6 +127,12 @@ export function Navbar() {
                 </m.li>
               ))}
               <li className="mt-3 border-t border-white/10 pt-4">
+                <a
+                  href={APP_LOGIN_URL}
+                  className="font-labels mb-2 block rounded-lg px-3 py-3 text-[16px] font-medium text-cream transition-colors hover:bg-white/5 hover:text-white"
+                >
+                  Login
+                </a>
                 <Link
                   href="/#cta"
                   onClick={() => setMenuOpen(false)}
