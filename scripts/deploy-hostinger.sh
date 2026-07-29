@@ -53,9 +53,9 @@ if git diff --cached --quiet; then
   echo "    No changes since last deploy — nothing to push."
 else
   git commit -q -m "Deploy static build $(git -C "$REPO_ROOT" rev-parse --short HEAD)"
-  # Push to every configured remote so GitLab and GitHub never drift —
-  # Hostinger pulls from whichever one you connected.
-  for remote in $(git -C "$REPO_ROOT" remote); do
+  # By default push to every configured remote so GitLab and GitHub never
+  # drift. Set REMOTES to limit it, e.g. REMOTES=github npm run deploy:hostinger
+  for remote in ${REMOTES:-$(git -C "$REPO_ROOT" remote)}; do
     if git push -q "$remote" "$BRANCH" 2>/dev/null; then
       echo "    Pushed to $remote/$BRANCH"
     else
